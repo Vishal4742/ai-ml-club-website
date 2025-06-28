@@ -121,11 +121,11 @@ const About = () => {
               return (
                 <div
                   key={index}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-[spin_20s_linear_infinite]"
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   style={{
                     transformOrigin: '0 0',
                     transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
-                    animation: `rotate3d-${index} 15s linear infinite`,
+                    animation: `rotate3d${index} 15s linear infinite`,
                   }}
                 >
                   <div 
@@ -159,21 +159,6 @@ const About = () => {
           </Button>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes rotate3d-0 {
-          0% { transform: translate(-50%, -50%) rotateY(-60deg) translateZ(200px); }
-          100% { transform: translate(-50%, -50%) rotateY(300deg) translateZ(200px); }
-        }
-        @keyframes rotate3d-1 {
-          0% { transform: translate(-50%, -50%) rotateY(60deg) translateZ(200px); }
-          100% { transform: translate(-50%, -50%) rotateY(420deg) translateZ(200px); }
-        }
-        @keyframes rotate3d-2 {
-          0% { transform: translate(-50%, -50%) rotateY(180deg) translateZ(200px); }
-          100% { transform: translate(-50%, -50%) rotateY(540deg) translateZ(200px); }
-        }
-      `}</style>
     </section>
   );
 };

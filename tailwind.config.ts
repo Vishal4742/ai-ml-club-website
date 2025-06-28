@@ -1,4 +1,5 @@
 
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -97,15 +98,31 @@ export default {
 					'50%': { 
 						boxShadow: '0 0 40px rgba(34, 197, 94, 0.8)' 
 					}
+				},
+				'rotate3d0': {
+					'0%': { transform: 'translate(-50%, -50%) rotateY(-60deg) translateZ(200px)' },
+					'100%': { transform: 'translate(-50%, -50%) rotateY(300deg) translateZ(200px)' }
+				},
+				'rotate3d1': {
+					'0%': { transform: 'translate(-50%, -50%) rotateY(60deg) translateZ(200px)' },
+					'100%': { transform: 'translate(-50%, -50%) rotateY(420deg) translateZ(200px)' }
+				},
+				'rotate3d2': {
+					'0%': { transform: 'translate(-50%, -50%) rotateY(180deg) translateZ(200px)' },
+					'100%': { transform: 'translate(-50%, -50%) rotateY(540deg) translateZ(200px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite alternate'
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'rotate3d0': 'rotate3d0 15s linear infinite',
+				'rotate3d1': 'rotate3d1 15s linear infinite',
+				'rotate3d2': 'rotate3d2 15s linear infinite'
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
