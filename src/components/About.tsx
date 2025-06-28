@@ -1,4 +1,3 @@
-
 import { Users, Target, Calendar, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,6 +28,9 @@ const About = () => {
       description: "Managing workshops and competitions"
     }
   ];
+
+  const president = teamMembers[0];
+  const otherMembers = teamMembers.slice(1);
 
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-black to-gray-900">
@@ -91,31 +93,87 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="group">
-              <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-105">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-400/50 group-hover:border-green-400 transition-all duration-300">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
-                <p className="text-green-400 font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-300 text-sm">{member.description}</p>
+        {/* President Section */}
+        <div className="flex justify-center mb-16">
+          <div className="group">
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 border-2 border-green-400/50 hover:border-green-400 transition-all duration-300 hover:transform hover:scale-105 max-w-sm">
+              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-400 group-hover:border-teal-400 transition-all duration-300">
+                <img 
+                  src={president.image} 
+                  alt={president.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <h4 className="text-2xl font-bold text-white mb-2">{president.name}</h4>
+              <p className="text-green-400 font-semibold mb-3 text-lg">{president.role}</p>
+              <p className="text-gray-300">{president.description}</p>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="text-center">
+        {/* Other Team Members - 3D Circular Animation */}
+        <div className="relative h-80 flex items-center justify-center overflow-hidden">
+          <div className="relative w-full max-w-4xl">
+            {otherMembers.map((member, index) => {
+              const angle = (index * 120) - 60; // Distribute in 120-degree intervals
+              const radius = 200; // Distance from center
+              
+              return (
+                <div
+                  key={index}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-[spin_20s_linear_infinite]"
+                  style={{
+                    transformOrigin: '0 0',
+                    transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
+                    animation: `rotate3d-${index} 15s linear infinite`,
+                  }}
+                >
+                  <div 
+                    className="group perspective-1000"
+                    style={{
+                      transform: `rotateY(-${angle}deg)`, // Counter-rotate to keep facing forward
+                    }}
+                  >
+                    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-110 w-64 transform-gpu">
+                      <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-400/50 group-hover:border-green-400 transition-all duration-300">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
+                      <p className="text-green-400 font-semibold mb-3">{member.role}</p>
+                      <p className="text-gray-300 text-sm">{member.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="text-center mt-16">
           <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold px-8 py-3 rounded-full">
             Join Our Community
           </Button>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes rotate3d-0 {
+          0% { transform: translate(-50%, -50%) rotateY(-60deg) translateZ(200px); }
+          100% { transform: translate(-50%, -50%) rotateY(300deg) translateZ(200px); }
+        }
+        @keyframes rotate3d-1 {
+          0% { transform: translate(-50%, -50%) rotateY(60deg) translateZ(200px); }
+          100% { transform: translate(-50%, -50%) rotateY(420deg) translateZ(200px); }
+        }
+        @keyframes rotate3d-2 {
+          0% { transform: translate(-50%, -50%) rotateY(180deg) translateZ(200px); }
+          100% { transform: translate(-50%, -50%) rotateY(540deg) translateZ(200px); }
+        }
+      `}</style>
     </section>
   );
 };
