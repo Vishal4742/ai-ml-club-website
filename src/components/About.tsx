@@ -111,45 +111,29 @@ const About = () => {
           </div>
         </div>
 
-        {/* Other Team Members - 3D Circular Animation */}
-        <div className="relative h-80 flex items-center justify-center overflow-hidden">
-          <div className="relative w-full max-w-4xl">
-            {otherMembers.map((member, index) => {
-              const angle = (index * 120) - 60; // Distribute in 120-degree intervals
-              const radius = 200; // Distance from center
-              
-              return (
-                <div
-                  key={index}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                  style={{
-                    transformOrigin: '0 0',
-                    transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
-                    animation: `rotate3d${index} 15s linear infinite`,
-                  }}
-                >
-                  <div 
-                    className="group perspective-1000"
-                    style={{
-                      transform: `rotateY(-${angle}deg)`, // Counter-rotate to keep facing forward
-                    }}
-                  >
-                    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-110 w-64 transform-gpu">
-                      <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-400/50 group-hover:border-green-400 transition-all duration-300">
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
-                      <p className="text-green-400 font-semibold mb-3">{member.role}</p>
-                      <p className="text-gray-300 text-sm">{member.description}</p>
-                    </div>
+        {/* Other Team Members - Horizontal Scrolling */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll-horizontal space-x-6">
+            {/* Duplicate members for seamless loop */}
+            {[...otherMembers, ...otherMembers].map((member, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 group"
+              >
+                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-110 w-64">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-green-400/50 group-hover:border-green-400 transition-all duration-300">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
+                  <h4 className="text-xl font-bold text-white mb-1">{member.name}</h4>
+                  <p className="text-green-400 font-semibold mb-3">{member.role}</p>
+                  <p className="text-gray-300 text-sm">{member.description}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
 
