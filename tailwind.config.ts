@@ -1,5 +1,3 @@
-
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -102,6 +100,28 @@ export default {
 				'scroll-horizontal': {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(-50%)' }
+				},
+				'liquid-blob-1': {
+					'0%, 100%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+					'25%': { transform: 'translate(30px, -20px) scale(1.1) rotate(90deg)' },
+					'50%': { transform: 'translate(-20px, 30px) scale(0.9) rotate(180deg)' },
+					'75%': { transform: 'translate(-30px, -10px) scale(1.05) rotate(270deg)' }
+				},
+				'liquid-blob-2': {
+					'0%, 100%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+					'33%': { transform: 'translate(-25px, 20px) scale(1.2) rotate(120deg)' },
+					'66%': { transform: 'translate(35px, -15px) scale(0.8) rotate(240deg)' }
+				},
+				'liquid-blob-3': {
+					'0%, 100%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+					'20%': { transform: 'translate(20px, 25px) scale(1.3) rotate(72deg)' },
+					'40%': { transform: 'translate(-30px, 10px) scale(0.7) rotate(144deg)' },
+					'60%': { transform: 'translate(15px, -20px) scale(1.1) rotate(216deg)' },
+					'80%': { transform: 'translate(-10px, -25px) scale(0.9) rotate(288deg)' }
+				},
+				'liquid-blob-4': {
+					'0%, 100%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+					'50%': { transform: 'translate(-40px, -30px) scale(1.4) rotate(180deg)' }
 				}
 			},
 			animation: {
@@ -109,10 +129,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'glow': 'glow 2s ease-in-out infinite alternate',
-				'scroll-horizontal': 'scroll-horizontal 15s linear infinite'
+				'scroll-horizontal': 'scroll-horizontal 15s linear infinite',
+				'liquid-blob-1': 'liquid-blob-1 20s ease-in-out infinite',
+				'liquid-blob-2': 'liquid-blob-2 25s ease-in-out infinite',
+				'liquid-blob-3': 'liquid-blob-3 18s ease-in-out infinite',
+				'liquid-blob-4': 'liquid-blob-4 22s ease-in-out infinite'
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
