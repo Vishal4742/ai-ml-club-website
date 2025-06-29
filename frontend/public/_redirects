@@ -1,0 +1,8 @@
+# SPA Routing - Redirect all routes to index.html
+/*    /index.html   200
+
+# Optional: Redirect old URLs if needed
+# /old-page    /new-page    301
+
+# Optional: Custom 404 page
+# /404.html    404 
