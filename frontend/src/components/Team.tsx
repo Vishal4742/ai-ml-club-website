@@ -87,8 +87,8 @@ const Team = () => {
           </h2>
           
           <p className="text-xl text-white/80 max-w-3xl mx-auto">
-            Our diverse founding team drives the future of AI & ML at OCT Bhopal. 
-            From faculty advisors to student leaders, we're united by our commitment to excellence and innovation.
+            Our diverse founding team is preparing to drive the future of AI & ML at OCT Bhopal. 
+            From leadership to specialized roles, we're united by our commitment to excellence and innovation.
           </p>
         </div>
 
@@ -196,16 +196,16 @@ const Team = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="glass rounded-xl p-6">
-            <div className="text-3xl font-bold text-gradient mb-2">50+</div>
-            <div className="text-sm text-white/70">Founding Members</div>
+            <div className="text-3xl font-bold text-gradient mb-2">12</div>
+            <div className="text-sm text-white/70">Core Team Members</div>
           </div>
           <div className="glass rounded-xl p-6">
-            <div className="text-3xl font-bold text-gradient-2 mb-2">8</div>
+            <div className="text-3xl font-bold text-gradient-2 mb-2">3</div>
             <div className="text-sm text-white/70">Leadership Positions</div>
           </div>
           <div className="glass rounded-xl p-6">
-            <div className="text-3xl font-bold text-gradient mb-2">15+</div>
-            <div className="text-sm text-white/70">Upcoming Events</div>
+            <div className="text-3xl font-bold text-gradient mb-2">5+</div>
+            <div className="text-sm text-white/70">Planned Events</div>
           </div>
           <div className="glass rounded-xl p-6">
             <div className="text-3xl font-bold text-gradient-2 mb-2">2025</div>

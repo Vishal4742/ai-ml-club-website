@@ -20,9 +20,9 @@ export const teamMembers: TeamMember[] = [
     role: "President",
     image: "/assets/images/team/vishal-kumar.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "President of the AI & ML Club, leading the team and setting the vision for innovation. Passionate about creating opportunities for students to explore and excel in artificial intelligence and machine learning.",
+    bio: "President of the AI & ML Club, leading the founding team and setting the vision for innovation. Passionate about creating opportunities for students to explore and excel in artificial intelligence and machine learning.",
     skills: ["Leadership", "AI Strategy", "Team Building", "Strategic Planning"],
-    achievements: ["Founded the club in 2024", "Led inaugural ceremony", "Established club vision and mission"]
+    achievements: ["Leading club formation", "Establishing club vision and mission", "Coordinating with faculty advisors"]
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export const teamMembers: TeamMember[] = [
     fallbackImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
     bio: "Vice President, supporting club operations and member engagement. Dedicated to fostering a collaborative environment where every member can thrive and contribute to our AI & ML community.",
     skills: ["Management", "Event Coordination", "Member Engagement", "Communication"],
-    achievements: ["Co-led inaugural events", "Established member onboarding process", "Coordinated team activities"]
+    achievements: ["Supporting club formation", "Planning member onboarding process", "Coordinating team activities"]
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const teamMembers: TeamMember[] = [
     fallbackImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
     bio: "General Manager, ensuring smooth functioning of all club activities. Focused on operational excellence and creating efficient processes for club management and event execution.",
     skills: ["Organization", "Logistics", "Process Management", "Team Coordination"],
-    achievements: ["Managed club launch", "Established operational procedures", "Streamlined event planning"]
+    achievements: ["Planning club launch", "Establishing operational procedures", "Streamlining event planning"]
   },
   {
     id: 4,
@@ -50,9 +50,9 @@ export const teamMembers: TeamMember[] = [
     role: "Event Manager & Special Performance",
     image: "/assets/images/team/gaurav-jain.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, organizing and executing club events and special performances. Creative professional dedicated to delivering memorable experiences that inspire and engage our community.",
+    bio: "Event Manager, planning and organizing club events and special performances. Creative professional dedicated to delivering memorable experiences that will inspire and engage our community.",
     skills: ["Event Planning", "Coordination", "Performance Management", "Creative Direction"],
-    achievements: ["Led first club event", "Designed inaugural ceremony", "Coordinated special performances"]
+    achievements: ["Planning inaugural events", "Designing inauguration ceremony", "Coordinating special performances"]
   },
   {
     id: 5,
@@ -60,9 +60,9 @@ export const teamMembers: TeamMember[] = [
     role: "Event Manager & Special Performance",
     image: "/assets/images/team/archi-sharma.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, co-organizing events and performances. Passionate about creating inclusive and engaging experiences that bring our AI & ML community together.",
+    bio: "Event Manager, co-organizing events and performances. Passionate about creating inclusive and engaging experiences that will bring our AI & ML community together.",
     skills: ["Teamwork", "Creativity", "Event Coordination", "Community Building"],
-    achievements: ["Coordinated inaugural ceremony", "Managed event logistics", "Enhanced member experience"]
+    achievements: ["Planning inaugural ceremony", "Coordinating event logistics", "Enhancing member experience"]
   },
   {
     id: 6,
@@ -70,9 +70,9 @@ export const teamMembers: TeamMember[] = [
     role: "Event Manager & Special Performance",
     image: "/assets/images/team/parul-ajit.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, supporting event logistics and special activities. Detail-oriented professional ensuring every event runs smoothly and exceeds expectations.",
+    bio: "Event Manager, supporting event logistics and special activities. Detail-oriented professional ensuring every event will run smoothly and exceed expectations.",
     skills: ["Logistics", "Support", "Attention to Detail", "Problem Solving"],
-    achievements: ["Supported event execution", "Managed technical requirements", "Ensured smooth operations"]
+    achievements: ["Supporting event planning", "Managing technical requirements", "Ensuring smooth operations"]
   },
   {
     id: 7,
@@ -80,9 +80,9 @@ export const teamMembers: TeamMember[] = [
     role: "Graphic Designer & Event Speaker",
     image: "/assets/images/team/arnav-singh.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
-    bio: "Graphic Designer and Event Speaker, creating visuals and presenting at events. Creative professional combining design expertise with public speaking skills to communicate complex AI concepts effectively.",
+    bio: "Graphic Designer and Event Speaker, creating visuals and preparing presentations for events. Creative professional combining design expertise with public speaking skills to communicate complex AI concepts effectively.",
     skills: ["Design", "Public Speaking", "Visual Communication", "Content Creation"],
-    achievements: ["Designed club branding", "Created visual identity", "Delivered engaging presentations"]
+    achievements: ["Designing club branding", "Creating visual identity", "Preparing engaging presentations"]
   },
   {
     id: 8,
@@ -92,7 +92,7 @@ export const teamMembers: TeamMember[] = [
     fallbackImage: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
     bio: "Tech Lead, overseeing technical projects and club technology. Experienced developer passionate about leveraging technology to enhance club operations and member experience.",
     skills: ["Programming", "AI/ML", "Technical Leadership", "System Architecture"],
-    achievements: ["Launched club website", "Implemented technical infrastructure", "Led development initiatives"]
+    achievements: ["Developing club website", "Implementing technical infrastructure", "Leading development initiatives"]
   },
   {
     id: 9,
@@ -100,9 +100,9 @@ export const teamMembers: TeamMember[] = [
     role: "Public Relation",
     image: "/assets/images/team/arpit-pandey.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "Public Relation, managing club communications and outreach. Strategic communicator building relationships with stakeholders and promoting our club's mission and achievements.",
+    bio: "Public Relation, managing club communications and outreach. Strategic communicator building relationships with stakeholders and promoting our club's mission and vision.",
     skills: ["Communication", "Networking", "Media Relations", "Brand Management"],
-    achievements: ["Built club's public profile", "Established media partnerships", "Enhanced external communications"]
+    achievements: ["Building club's public profile", "Establishing media partnerships", "Enhancing external communications"]
   },
   {
     id: 10,
@@ -112,7 +112,7 @@ export const teamMembers: TeamMember[] = [
     fallbackImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
     bio: "Discipline Head, ensuring order and discipline in club activities. Dedicated to maintaining high standards and creating a respectful environment for all members.",
     skills: ["Discipline", "Leadership", "Conflict Resolution", "Policy Enforcement"],
-    achievements: ["Maintained event decorum", "Established club guidelines", "Ensured member compliance"]
+    achievements: ["Establishing club guidelines", "Setting behavioral standards", "Ensuring member compliance"]
   },
   {
     id: 11,
@@ -120,9 +120,9 @@ export const teamMembers: TeamMember[] = [
     role: "Photographer",
     image: "/assets/images/team/khushi-kumari.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
-    bio: "Photographer, capturing moments at club events. Creative professional documenting our journey and preserving memories of our club's growth and achievements.",
+    bio: "Photographer, preparing to capture moments at club events. Creative professional ready to document our journey and preserve memories of our club's growth and achievements.",
     skills: ["Photography", "Creativity", "Visual Storytelling", "Event Coverage"],
-    achievements: ["Documented club inauguration", "Created event galleries", "Captured member moments"]
+    achievements: ["Preparing event documentation", "Setting up photo galleries", "Planning member photography"]
   },
   {
     id: 12,
@@ -130,9 +130,9 @@ export const teamMembers: TeamMember[] = [
     role: "Video Editor / Videographer",
     image: "/assets/images/team/pratish-mondal.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "Video Editor and Videographer, producing and editing club videos. Multimedia professional creating compelling content that showcases our club's activities and achievements.",
+    bio: "Video Editor and Videographer, preparing to produce and edit club videos. Multimedia professional ready to create compelling content that showcases our club's activities and achievements.",
     skills: ["Video Editing", "Videography", "Content Production", "Storytelling"],
-    achievements: ["Produced club promo video", "Created event highlights", "Developed multimedia content"]
+    achievements: ["Planning club promo video", "Preparing event highlights", "Developing multimedia content"]
   }
 ];
 
