@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Menu, 
@@ -6,43 +6,45 @@ import {
   ChevronDown,
   Sparkles
 } from "lucide-react";
+import { useOptimizedScroll } from "@/hooks/use-performance";
 
-const Header = () => {
+const Header = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  // Optimized scroll handling
+  const handleScroll = useCallback((scrollY: number) => {
+    setIsScrolled(scrollY > 20);
   }, []);
 
+  useOptimizedScroll(handleScroll, 16);
+
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
     { name: "Events", href: "#events" },
     { name: "Projects", href: "#projects" },
     { name: "Team", href: "#team" },
     { name: "Gallery", href: "#gallery" },
     { name: "Resources", href: "#resources" },
-    { name: "Contact", href: "#contact" },
   ];
 
-  const handleJoinUs = () => {
-    // Scroll to contact section for registration
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const handleJoinUs = useCallback(() => {
+    // Show a message to use ThreeDotsMenu for Contact section
+    alert("Please use the Three Dots Menu (top-right) to access the Contact section and join our waitlist!");
     setIsOpen(false); // Close mobile menu if open
-  };
+  }, []);
 
-  const handleLogoClick = () => {
+  const handleLogoClick = useCallback(() => {
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -95,7 +97,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={toggleMenu}
             aria-label="Toggle mobile menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -115,7 +117,7 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className="text-white/80 hover:text-white transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-white/10"
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.name}
@@ -135,6 +137,8 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
@@ -12,9 +12,8 @@ import {
   Calendar
 } from "lucide-react";
 
-const Hero = () => {
+const Hero = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -27,39 +26,39 @@ const Hero = () => {
     { icon: Sparkles, text: "Future Ready", color: "text-pink-400" }
   ];
 
-  // Functional button handlers
-  const handleGetStarted = () => {
+  // Optimized button handlers
+  const handleGetStarted = useCallback(() => {
     // Scroll to about section
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
-  const handleWatchDemo = () => {
+  const handleWatchDemo = useCallback(() => {
     // Open demo video in modal or new tab
     const demoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Replace with actual demo URL
     window.open(demoUrl, '_blank');
-  };
+  }, []);
 
-  const handleJoinUs = () => {
+  const handleJoinUs = useCallback(() => {
     // Scroll to contact section for registration
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
-  const handleScrollDown = () => {
+  const handleScrollDown = useCallback(() => {
     // Scroll to next section
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32">
       {/* Animated Background Gradients */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full gradient-bg opacity-20"></div>
@@ -162,6 +161,8 @@ const Hero = () => {
       <div className="absolute bottom-20 left-20 w-24 h-24 glass rounded-full animate-float opacity-20" style={{ animationDelay: '3s' }}></div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;

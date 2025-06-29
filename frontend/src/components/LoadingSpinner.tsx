@@ -1,24 +1,30 @@
-
-import { Loader2 } from "lucide-react";
+import { memo } from 'react';
 
 interface LoadingSpinnerProps {
-  size?: "sm" | "md" | "lg";
-  text?: string;
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
 }
 
-const LoadingSpinner = ({ size = "md", text }: LoadingSpinnerProps) => {
+const LoadingSpinner = memo(({ size = 'md', className = '' }: LoadingSpinnerProps) => {
   const sizeClasses = {
-    sm: "w-4 h-4",
-    md: "w-8 h-8",
-    lg: "w-12 h-12"
+    sm: 'w-4 h-4',
+    md: 'w-8 h-8',
+    lg: 'w-12 h-12'
   };
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-2">
-      <Loader2 className={`${sizeClasses[size]} animate-spin text-green-400`} />
-      {text && <p className="text-gray-400 text-sm">{text}</p>}
+    <div className={`flex items-center justify-center min-h-[200px] ${className}`}>
+      <div 
+        className={`${sizeClasses[size]} border-2 border-white/20 border-t-white rounded-full animate-spin`}
+        style={{
+          willChange: 'transform',
+          transform: 'translateZ(0)'
+        }}
+      />
     </div>
   );
-};
+});
+
+LoadingSpinner.displayName = 'LoadingSpinner';
 
 export default LoadingSpinner;
