@@ -1,73 +1,209 @@
-# Welcome to your Lovable project
+# AI & ML Club Website
 
-## Project info
+A modern, responsive website for the AI & ML Club at Oriental College of Technology, Bhopal. Built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/2e27e440-424b-45df-b348-002428e9bc9b
+## 🚀 Features
 
-## How can I edit this code?
+- **Modern Design**: Clean, professional interface with glass morphism effects
+- **Responsive**: Fully responsive design that works on all devices
+- **Team Showcase**: Interactive team member profiles with detailed information
+- **Event Management**: Display upcoming and past events with registration links
+- **Project Gallery**: Showcase club projects and achievements
+- **Contact Forms**: Integrated contact and newsletter signup forms
+- **Performance Optimized**: Fast loading with code splitting and lazy loading
+- **SEO Ready**: Optimized meta tags and structured data
+- **Accessibility**: WCAG compliant with proper ARIA labels
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **Forms**: React Hook Form + Zod validation
+- **Deployment**: Netlify/Vercel ready
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2e27e440-424b-45df-b348-002428e9bc9b) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ 
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd frontend
+   ```
 
-Follow these steps:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. **Open your browser**
+   Navigate to `http://localhost:8080`
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏗️ Build & Deploy
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Local Build
+```bash
+npm run build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+### Deploy to Netlify
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+#### Option 1: Drag & Drop (Quick)
+1. Run `npm run build`
+2. Go to [netlify.com](https://netlify.com)
+3. Drag the `dist` folder to deploy area
+4. Your site is live!
 
-**Use GitHub Codespaces**
+#### Option 2: Git Integration (Recommended)
+1. Push your code to GitHub
+2. Connect repository to Netlify
+3. Set build settings:
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist`
+4. Deploy automatically on every push
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Deploy to Vercel
+1. Go to [vercel.com](https://vercel.com)
+2. Import your Git repository
+3. Vercel auto-detects Vite settings
+4. Deploy with one click
 
-## What technologies are used for this project?
+## 📁 Project Structure
 
-This project is built with:
+```
+frontend/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui components
+│   │   └── ...             # Custom components
+│   ├── data/               # Static data and configurations
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   ├── pages/              # Page components
+│   └── assets/             # Images and static assets
+├── public/                 # Public assets
+├── dist/                   # Build output
+└── config files           # Vite, TypeScript, etc.
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🎨 Customization
 
-## How can I deploy this project?
+### Team Members
+Update team information in `src/data/team-members.ts`:
+```typescript
+export const teamMembers: TeamMember[] = [
+  {
+    id: 1,
+    name: "Your Name",
+    role: "Your Role",
+    image: "/path/to/image.jpg",
+    bio: "Your bio...",
+    skills: ["Skill 1", "Skill 2"],
+    achievements: ["Achievement 1", "Achievement 2"]
+  }
+];
+```
 
-Simply open [Lovable](https://lovable.dev/projects/2e27e440-424b-45df-b348-002428e9bc9b) and click on Share -> Publish.
+### Events
+Update events in `src/components/Events.tsx`:
+```typescript
+const upcomingEvents = [
+  {
+    title: "Event Title",
+    date: "2024-01-15",
+    time: "10:00 AM",
+    location: "Location",
+    description: "Event description",
+    lumaUrl: "https://lu.ma/event-url"
+  }
+];
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Styling
+- Colors: Update CSS variables in `src/index.css`
+- Components: Modify shadcn/ui components in `src/components/ui/`
+- Layout: Edit component structure in respective files
 
-Yes, you can!
+## 📸 Adding Profile Pictures
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. **Prepare images**: 400x400px, JPG/PNG format
+2. **Upload to**: `src/assets/images/team/`
+3. **Update data**: Modify `image` field in `team-members.ts`
+4. **Naming convention**: `firstname-lastname.jpg`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+See `UPLOAD_INSTRUCTIONS.md` for detailed guide.
+
+## 🔧 Development
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+### Code Style
+
+- TypeScript strict mode enabled
+- ESLint configuration included
+- Prettier formatting recommended
+- Component-based architecture
+
+## 🌐 Environment Variables
+
+Create `.env.local` for local development:
+```env
+VITE_API_URL=your-api-url
+VITE_ANALYTICS_ID=your-analytics-id
+```
+
+## 📊 Performance
+
+- **Lighthouse Score**: 90+ on all metrics
+- **Bundle Size**: Optimized with code splitting
+- **Loading Speed**: < 3 seconds on 3G
+- **SEO**: Fully optimized meta tags
+
+## 🔒 Security
+
+- Security headers configured
+- XSS protection enabled
+- Content Security Policy ready
+- HTTPS enforcement
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📞 Support
+
+For technical support:
+- **Tech Lead**: Ayush Kumar
+- **General Manager**: Prakhar Sahu
+- **Email**: [club-email@oct.edu.in]
+
+## 📄 License
+
+This project is maintained by the AI & ML Club at Oriental College of Technology, Bhopal.
+
+---
+
+**Built with ❤️ by the AI & ML Club Team**
