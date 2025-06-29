@@ -208,8 +208,8 @@ const Team = () => {
             <div className="text-sm text-white/70">Upcoming Events</div>
           </div>
           <div className="glass rounded-xl p-6">
-            <div className="text-3xl font-bold text-gradient-2 mb-2">2024</div>
-            <div className="text-sm text-white/70">Year Founded</div>
+            <div className="text-3xl font-bold text-gradient-2 mb-2">2025</div>
+            <div className="text-sm text-white/70">Launch Year</div>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ const Events = () => {
       lumaUrl: "https://lu.ma/ai-workshop-neural-networks" // Replace with actual Luma event URL
     },
     {
-      title: "ML Hackathon 2024 - Inaugural Edition",
+      title: "ML Hackathon 2025 - Inaugural Edition",
       date: "TBD - After Inauguration",
       time: "To be announced",
       location: "Main Auditorium",
@@ -34,28 +34,28 @@ const Events = () => {
       description: "Our first hackathon! 24-hour competition focusing on real-world ML solutions with amazing prizes",
       type: "Competition",
       status: "Planning",
-      lumaUrl: "https://lu.ma/ml-hackathon-2024" // Replace with actual Luma event URL
+      lumaUrl: "https://lu.ma/ml-hackathon-2025" // Replace with actual Luma event URL
     }
   ];
 
   const preparationActivities = [
     {
       title: "Club Formation Meeting",
-      date: "2024-01-10",
+      date: "2025-01-10",
       attendees: "25 founding members",
       description: "Initial meeting to establish club structure and plan inauguration",
       image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop"
     },
     {
       title: "Faculty Advisor Meeting",
-      date: "2024-01-08",
+      date: "2025-01-08",
       attendees: "Core team + faculty",
       description: "Meeting with faculty advisors to finalize club objectives and guidelines",
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop"
     },
     {
       title: "Student Interest Survey",
-      date: "2024-01-05",
+      date: "2025-01-05",
       attendees: "150+ responses",
       description: "Campus-wide survey to gauge interest in AI & ML activities",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop"

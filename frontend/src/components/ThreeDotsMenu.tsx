@@ -157,9 +157,9 @@ const ThreeDotsMenu = () => {
 
             {/* Footer */}
             <div className="mt-6 pt-4 border-t border-white/20">
-              <p className="text-xs text-white/40 text-center">
-                © 2024 AI & ML Club OCT Bhopal
-              </p>
+              <div className="text-center text-xs text-gray-400 mt-4">
+                © 2025 AI & ML Club OCT Bhopal
+              </div>
             </div>
           </div>
         </div>

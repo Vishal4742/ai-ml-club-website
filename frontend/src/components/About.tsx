@@ -39,7 +39,7 @@ const About = () => {
             <p className="text-gray-300 leading-relaxed">
               To be the leading student organization that bridges the gap between academic learning and industry 
               applications, producing skilled professionals who can drive innovation in AI and ML technologies 
-              and contribute meaningfully to society, starting fresh in 2024.
+              and contribute meaningfully to society, starting fresh in 2025.
             </p>
           </div>
         </div>

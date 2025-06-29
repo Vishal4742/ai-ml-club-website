@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 AI & ML Club, Oriental College of Technology. All rights reserved.
+              © 2025 AI & ML Club, Oriental College of Technology. All rights reserved.
             </div>
             <div className="flex items-center text-gray-400 text-sm">
               Made with <Heart className="text-red-400 mx-1" size={16} /> and <Code className="text-green-400 mx-1" size={16} /> by OCT AI/ML Club

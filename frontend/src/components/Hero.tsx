@@ -142,7 +142,7 @@ const Hero = () => {
               <div className="text-sm text-white/70">Planned Events</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-1">2024</div>
+              <div className="text-3xl font-bold text-gradient mb-1">2025</div>
               <div className="text-sm text-white/70">Launch Year</div>
             </div>
           </div>
