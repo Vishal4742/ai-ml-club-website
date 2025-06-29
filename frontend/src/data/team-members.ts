@@ -15,6 +15,16 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
+    id: 0,
+    name: "Prof. Shamaila Khan",
+    role: "Faculty Coordinator",
+    image: "/assets/images/team/shamaila-khan.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
+    bio: "Faculty Coordinator of the AI & ML Club, providing academic guidance and institutional support. Dedicated to fostering student growth and ensuring the club's activities align with educational excellence and innovation.",
+    skills: ["Academic Leadership", "Mentorship", "Curriculum Development", "Research Guidance"],
+    achievements: ["Providing faculty oversight", "Academic mentorship", "Institutional coordination", "Research collaboration"]
+  },
+  {
     id: 1,
     name: "Vishal Kumar",
     role: "President",
@@ -157,6 +167,13 @@ export const getLeadershipTeam = (): TeamMember[] => {
     member.role === "President" || 
     member.role === "Vice President" || 
     member.role === "General Manager"
+  );
+};
+
+// Helper function to get faculty team
+export const getFacultyTeam = (): TeamMember[] => {
+  return teamMembers.filter(member => 
+    member.role === "Faculty Coordinator"
   );
 };
 

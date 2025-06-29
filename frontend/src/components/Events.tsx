@@ -67,35 +67,35 @@ const Events = () => {
   };
 
   return (
-    <section id="events" className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section id="events" className="py-12 bg-gradient-to-b from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
             Events & Activities
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Get ready for exciting inaugural events, workshops, and competitions that will 
             accelerate your journey in AI and Machine Learning. All events will be managed through Luma for seamless registration.
           </p>
         </div>
 
         {/* Upcoming Events */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-            <Calendar className="text-green-400 mr-3" size={32} />
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <Calendar className="text-green-400 mr-2" size={24} />
             Planned Inaugural Events
           </h3>
           
-          <div className="grid gap-6">
+          <div className="grid gap-4">
             {upcomingEvents.map((event, index) => (
-              <div key={index} className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300">
+              <div key={index} className="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                   <div className="flex-1">
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h4 className="text-2xl font-bold text-white mb-2">{event.title}</h4>
-                        <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
+                        <h4 className="text-xl font-bold text-white mb-2">{event.title}</h4>
+                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-semibold ${
                           event.type === 'Inauguration' ? 'bg-yellow-500/20 text-yellow-400' :
                           event.type === 'Workshop' ? 'bg-green-500/20 text-green-400' :
                           event.type === 'Competition' ? 'bg-teal-500/20 text-teal-400' :
@@ -104,7 +104,7 @@ const Events = () => {
                           {event.type}
                         </span>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                      <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                         event.status === 'Planning' ? 'bg-blue-500/20 text-blue-400' :
                         'bg-yellow-500/20 text-yellow-400'
                       }`}>
@@ -112,37 +112,37 @@ const Events = () => {
                       </span>
                     </div>
                     
-                    <p className="text-gray-300 mb-4">{event.description}</p>
+                    <p className="text-gray-300 mb-3 text-sm">{event.description}</p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                       <div className="flex items-center text-gray-400">
-                        <Calendar className="mr-2" size={16} />
+                        <Calendar className="mr-1" size={12} />
                         {event.date}
                       </div>
                       <div className="flex items-center text-gray-400">
-                        <Clock className="mr-2" size={16} />
+                        <Clock className="mr-1" size={12} />
                         {event.time}
                       </div>
                       <div className="flex items-center text-gray-400">
-                        <MapPin className="mr-2" size={16} />
+                        <MapPin className="mr-1" size={12} />
                         {event.location}
                       </div>
                     </div>
                     
-                    <div className="flex items-center text-gray-400 mt-2">
-                      <Users className="mr-2" size={16} />
+                    <div className="flex items-center text-gray-400 mt-2 text-xs">
+                      <Users className="mr-1" size={12} />
                       {event.attendees}
                     </div>
                   </div>
                   
-                  <div className="mt-4 lg:mt-0 lg:ml-6">
+                  <div className="mt-3 lg:mt-0 lg:ml-4">
                     <Button 
-                      className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold"
+                      className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold text-sm px-4 py-2"
                       onClick={() => handleLumaRegistration(event.lumaUrl)}
                       disabled
                     >
                       Coming Soon
-                      <ExternalLink className="ml-2" size={16} />
+                      <ExternalLink className="ml-1" size={12} />
                     </Button>
                   </div>
                 </div>
@@ -153,26 +153,26 @@ const Events = () => {
 
         {/* Preparation Activities */}
         <div>
-          <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-            <Clock className="text-teal-400 mr-3" size={32} />
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <Clock className="text-teal-400 mr-2" size={24} />
             Club Formation Journey
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {preparationActivities.map((event, index) => (
               <div key={index} className="group">
-                <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-teal-400/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <div className="h-48 overflow-hidden">
+                <div className="rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-teal-400/50 transition-all duration-300 hover:transform hover:scale-105">
+                  <div className="h-32 overflow-hidden">
                     <img 
                       src={event.image} 
                       alt={event.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <div className="p-6">
-                    <h4 className="text-xl font-bold text-white mb-2">{event.title}</h4>
-                    <p className="text-gray-300 mb-3">{event.description}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-400">
+                  <div className="p-4">
+                    <h4 className="text-lg font-bold text-white mb-2">{event.title}</h4>
+                    <p className="text-gray-300 mb-2 text-sm">{event.description}</p>
+                    <div className="flex items-center justify-between text-xs text-gray-400">
                       <span>{new Date(event.date).toLocaleDateString()}</span>
                       <span>{event.attendees}</span>
                     </div>

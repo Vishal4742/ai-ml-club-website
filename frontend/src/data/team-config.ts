@@ -1,7 +1,8 @@
 // Team statistics
 export const teamStats = {
-  totalMembers: 12,
+  totalMembers: 13,
   leadershipPositions: 3,
+  facultyPositions: 1,
   eventManagementPositions: 3,
   technicalPositions: 4,
   supportPositions: 2,
@@ -13,6 +14,7 @@ export const teamStats = {
 // Team categories for filtering
 export const teamCategories = {
   leadership: ["President", "Vice President", "General Manager"],
+  faculty: ["Faculty Coordinator"],
   eventManagement: ["Event Manager", "Event Speaker"],
   technical: ["Tech Lead", "Designer", "Editor", "Photographer", "Videographer"],
   support: ["Public Relation", "Discipline Head"]
@@ -77,7 +79,8 @@ export const skillColors = {
   creative: "bg-purple-500/20 text-purple-400", 
   leadership: "bg-green-500/20 text-green-400",
   communication: "bg-orange-500/20 text-orange-400",
-  management: "bg-pink-500/20 text-pink-400"
+  management: "bg-pink-500/20 text-pink-400",
+  faculty: "bg-indigo-500/20 text-indigo-400"
 };
 
 // Helper function to get skill color
@@ -98,6 +101,9 @@ export const getSkillColor = (skill: string): string => {
   }
   if (skillLower.includes('coordination') || skillLower.includes('planning') || skillLower.includes('logistics')) {
     return skillColors.management;
+  }
+  if (skillLower.includes('academic') || skillLower.includes('mentorship') || skillLower.includes('curriculum') || skillLower.includes('research')) {
+    return skillColors.faculty;
   }
   
   return skillColors.default;
