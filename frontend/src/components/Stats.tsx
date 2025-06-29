@@ -1,4 +1,3 @@
-
 import { TrendingUp } from "lucide-react";
 
 interface StatItemProps {
@@ -17,17 +16,17 @@ const StatItem = ({ number, label, icon }: StatItemProps) => (
 
 const Stats = () => {
   const stats = [
-    { number: "150+", label: "Active Members" },
-    { number: "25+", label: "Projects Completed" },
-    { number: "50+", label: "Events Organized" },
-    { number: "10+", label: "Industry Partners" }
+    { number: "12", label: "Core Team Members" },
+    { number: "5+", label: "Planned Events" },
+    { number: "3+", label: "Project Ideas" },
+    { number: "150+", label: "Student Interest" }
   ];
 
   return (
     <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8">
       <div className="flex items-center justify-center mb-8">
         <TrendingUp className="text-green-400 mr-3" size={32} />
-        <h2 className="text-2xl font-bold text-white">Our Impact</h2>
+        <h2 className="text-2xl font-bold text-white">Club Preparation Stats</h2>
       </div>
       
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

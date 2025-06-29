@@ -1,82 +1,78 @@
-
-import { Github, ExternalLink, Award, Users, Code, Zap } from "lucide-react";
+import { Github, ExternalLink, Award, Users, Code, Zap, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
-  const ongoingProjects = [
+  const plannedProjects = [
     {
       title: "Facial Recognition Attendance System",
       description: "AI-powered attendance system using computer vision for automated student tracking",
       tech: ["Python", "OpenCV", "TensorFlow", "Flask"],
-      progress: 75,
+      progress: 0,
       team: "4 members",
-      status: "In Development"
+      status: "Planning Phase"
     },
     {
       title: "Smart Task Manager with ML",
       description: "Intelligent task prioritization using machine learning algorithms",
       tech: ["React", "Node.js", "Python", "scikit-learn"],
-      progress: 60,
+      progress: 0,
       team: "5 members",
-      status: "In Development"
+      status: "Planning Phase"
     },
     {
       title: "Campus Chatbot",
       description: "NLP-powered chatbot for campus information and student queries",
       tech: ["Python", "NLTK", "Transformers", "FastAPI"],
-      progress: 40,
+      progress: 0,
       team: "3 members",
       status: "Research Phase"
     }
   ];
 
-  const completedProjects = [
+  const projectIdeas = [
     {
       title: "Stock Price Predictor",
       description: "LSTM-based model for predicting stock market trends",
       image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
       tech: ["Python", "TensorFlow", "Pandas", "Matplotlib"],
-      achievement: "95% accuracy on test data",
-      github: "#",
-      demo: "#"
+      status: "Idea Phase",
+      difficulty: "Intermediate"
     },
     {
       title: "Image Classification App",
       description: "Mobile app for real-time object detection and classification",
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
       tech: ["Flutter", "TensorFlow Lite", "Dart"],
-      achievement: "1000+ downloads",
-      github: "#",
-      demo: "#"
+      status: "Idea Phase",
+      difficulty: "Advanced"
     },
     {
       title: "Sentiment Analysis Tool",
       description: "Web application for analyzing social media sentiment",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
       tech: ["React", "Python", "VADER", "D3.js"],
-      achievement: "Featured in college magazine",
-      github: "#",
-      demo: "#"
+      status: "Idea Phase",
+      difficulty: "Beginner"
     }
   ];
 
-  const achievements = [
+  const preparationActivities = [
     {
-      title: "TechFest 2023 Winner",
-      description: "First place in AI/ML category",
-      icon: Award,
-      color: "text-yellow-400"
-    },
-    {
-      title: "Smart India Hackathon",
-      description: "Top 10 finalist nationwide",
-      icon: Code,
+      title: "Team Formation",
+      description: "Core team established with 12 dedicated members",
+      icon: Users,
       color: "text-green-400"
     },
     {
-      title: "Research Publication",
-      description: "Paper accepted in IEEE conference",
-      icon: Zap,
+      title: "Project Planning",
+      description: "Initial project ideas and roadmap developed",
+      icon: Lightbulb,
+      color: "text-yellow-400"
+    },
+    {
+      title: "Resource Collection",
+      description: "Learning materials and tools identified",
+      icon: Code,
       color: "text-blue-400"
     }
   ];
@@ -87,23 +83,23 @@ const Projects = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
-            Projects & Achievements
+            Projects & Planning
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore our innovative projects that push the boundaries of AI and ML, 
-            solving real-world problems and creating impact.
+            Explore our planned projects and innovative ideas that will push the boundaries of AI and ML, 
+            solving real-world problems and creating impact once we launch.
           </p>
         </div>
 
-        {/* Ongoing Projects */}
+        {/* Planned Projects */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <Code className="text-green-400 mr-3" size={32} />
-            Ongoing Projects
+            Planned Projects
           </h3>
           
           <div className="grid gap-6">
-            {ongoingProjects.map((project, index) => (
+            {plannedProjects.map((project, index) => (
               <div key={index} className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                   <div className="flex-1">
@@ -111,7 +107,7 @@ const Projects = () => {
                       <div>
                         <h4 className="text-2xl font-bold text-white mb-2">{project.title}</h4>
                         <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
-                          project.status === 'In Development' ? 'bg-green-500/20 text-green-400' :
+                          project.status === 'Planning Phase' ? 'bg-blue-500/20 text-blue-400' :
                           'bg-yellow-500/20 text-yellow-400'
                         }`}>
                           {project.status}
@@ -151,15 +147,15 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Completed Projects */}
+        {/* Project Ideas */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-            <Zap className="text-teal-400 mr-3" size={32} />
-            Completed Projects
+            <Lightbulb className="text-teal-400 mr-3" size={32} />
+            Project Ideas
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {completedProjects.map((project, index) => (
+            {projectIdeas.map((project, index) => (
               <div key={index} className="group">
                 <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-teal-400/50 transition-all duration-300 hover:transform hover:scale-105">
                   <div className="h-48 overflow-hidden">
@@ -181,18 +177,18 @@ const Projects = () => {
                       ))}
                     </div>
                     
-                    <div className="text-sm text-teal-400 font-semibold mb-4">
-                      🏆 {project.achievement}
+                    <div className="flex items-center justify-between text-sm mb-4">
+                      <span className="text-teal-400 font-semibold">{project.status}</span>
+                      <span className="text-gray-400">Difficulty: {project.difficulty}</span>
                     </div>
                     
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black">
-                        <Github className="mr-2" size={16} />
-                        Code
+                      <Button size="sm" variant="outline" className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black" disabled>
+                        <Lightbulb className="mr-2" size={16} />
+                        Learn More
                       </Button>
-                      <Button size="sm" className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black">
-                        <ExternalLink className="mr-2" size={16} />
-                        Demo
+                      <Button size="sm" className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black" disabled>
+                        Coming Soon
                       </Button>
                     </div>
                   </div>
@@ -202,22 +198,38 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Achievements */}
-        <div>
+        {/* Preparation Activities */}
+        <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-            <Award className="text-yellow-400 mr-3" size={32} />
-            Major Achievements
+            <Zap className="text-blue-400 mr-3" size={32} />
+            Preparation Activities
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-yellow-400/50 transition-all duration-300 hover:transform hover:scale-105">
-                <achievement.icon className={`mx-auto mb-4 ${achievement.color}`} size={48} />
-                <h4 className="text-xl font-bold text-white mb-2">{achievement.title}</h4>
-                <p className="text-gray-300">{achievement.description}</p>
+            {preparationActivities.map((activity, index) => (
+              <div key={index} className="text-center">
+                <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300">
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center`}>
+                    <activity.icon className={activity.color} size={32} />
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-2">{activity.title}</h4>
+                  <p className="text-gray-300">{activity.description}</p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center p-8 rounded-2xl bg-gradient-to-r from-green-500/10 to-teal-500/10 border border-green-500/20">
+          <h3 className="text-2xl font-bold text-white mb-4">Ready to Build the Future?</h3>
+          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+            Join our founding team and be part of creating innovative AI and ML solutions 
+            that will make a real impact in our community and beyond.
+          </p>
+          <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold px-8 py-3 rounded-full">
+            Join Our Founding Team
+          </Button>
         </div>
       </div>
     </section>

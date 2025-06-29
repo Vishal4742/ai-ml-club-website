@@ -1,5 +1,4 @@
-
-import { Heart, Code, Brain } from "lucide-react";
+import { Heart, Code, Brain, Clock } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -18,8 +17,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Empowering students to explore, learn, and innovate in the exciting world of 
-              Artificial Intelligence and Machine Learning.
+              Preparing to empower students to explore, learn, and innovate in the exciting world of 
+              Artificial Intelligence and Machine Learning. Launching soon!
             </p>
             <p className="text-green-400 font-semibold">"Innovate. Implement. Inspire."</p>
           </div>
@@ -46,7 +45,10 @@ const Footer = () => {
                 Bhopal, Madhya Pradesh
               </li>
               <li className="text-gray-400">aimlclub@oct.edu.in</li>
-              <li className="text-gray-400">+91 98765 43210</li>
+              <li className="text-gray-400 flex items-center">
+                <Clock className="mr-1" size={14} />
+                Phone: Coming Soon
+              </li>
             </ul>
           </div>
         </div>

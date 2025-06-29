@@ -1,16 +1,16 @@
-
-import { BookOpen, Github, ExternalLink, Download, Video, Code } from "lucide-react";
+import { BookOpen, Github, ExternalLink, Download, Video, Code, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Resources = () => {
-  const learningResources = [
+  const plannedResources = [
     {
       title: "Machine Learning Fundamentals",
       description: "Comprehensive guide covering linear regression, classification, and clustering",
       type: "PDF Guide",
       icon: BookOpen,
       color: "text-green-400",
-      bgColor: "bg-green-500/20"
+      bgColor: "bg-green-500/20",
+      status: "Coming Soon"
     },
     {
       title: "Deep Learning with TensorFlow",
@@ -18,7 +18,8 @@ const Resources = () => {
       type: "Video Series",
       icon: Video,
       color: "text-blue-400",
-      bgColor: "bg-blue-500/20"
+      bgColor: "bg-blue-500/20",
+      status: "Coming Soon"
     },
     {
       title: "Python for Data Science",
@@ -26,31 +27,29 @@ const Resources = () => {
       type: "Interactive Course",
       icon: Code,
       color: "text-purple-400",
-      bgColor: "bg-purple-500/20"
+      bgColor: "bg-purple-500/20",
+      status: "Coming Soon"
     }
   ];
 
-  const repositories = [
+  const plannedRepositories = [
     {
       title: "ML-Algorithms-Collection",
       description: "Implementation of popular machine learning algorithms from scratch",
       language: "Python",
-      stars: "42",
-      forks: "15"
+      status: "Planning Phase"
     },
     {
       title: "AI-Projects-Showcase",
       description: "Collection of AI projects developed by club members",
       language: "Multiple",
-      stars: "38",
-      forks: "12"
+      status: "Planning Phase"
     },
     {
       title: "Data-Science-Utils",
       description: "Utility functions and tools for data preprocessing and analysis",
       language: "Python",
-      stars: "25",
-      forks: "8"
+      status: "Planning Phase"
     }
   ];
 
@@ -60,21 +59,24 @@ const Resources = () => {
       provider: "Stanford University",
       duration: "11 weeks",
       level: "Intermediate",
-      url: "#"
+      url: "https://cs229.stanford.edu/",
+      status: "Available"
     },
     {
       title: "Deep Learning Specialization",
       provider: "DeepLearning.AI",
       duration: "4 months",
       level: "Beginner to Advanced",
-      url: "#"
+      url: "https://www.coursera.org/specializations/deep-learning",
+      status: "Available"
     },
     {
       title: "Applied Data Science with Python",
       provider: "University of Michigan",
       duration: "5 months",
       level: "Intermediate",
-      url: "#"
+      url: "https://www.coursera.org/specializations/data-science-python",
+      status: "Available"
     }
   ];
 
@@ -88,19 +90,19 @@ const Resources = () => {
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Access curated learning materials, code repositories, and recommended courses 
-            to accelerate your AI and ML journey.
+            to accelerate your AI and ML journey once our club launches.
           </p>
         </div>
 
-        {/* Learning Materials */}
+        {/* Planned Learning Materials */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <BookOpen className="text-green-400 mr-3" size={32} />
-            Learning Materials
+            Planned Learning Materials
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {learningResources.map((resource, index) => (
+            {plannedResources.map((resource, index) => (
               <div key={index} className="group">
                 <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-green-400/50 transition-all duration-300 hover:transform hover:scale-105">
                   <div className={`w-16 h-16 ${resource.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -112,26 +114,28 @@ const Resources = () => {
                   
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-teal-400 font-semibold">{resource.type}</span>
-                    <Button size="sm" className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black">
-                      <Download className="mr-2" size={16} />
-                      Access
-                    </Button>
+                    <span className="text-sm text-yellow-400 font-semibold">{resource.status}</span>
                   </div>
+                  
+                  <Button size="sm" className="w-full mt-4 bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black" disabled>
+                    <Clock className="mr-2" size={16} />
+                    Coming Soon
+                  </Button>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* GitHub Repositories */}
+        {/* Planned GitHub Repositories */}
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <Github className="text-teal-400 mr-3" size={32} />
-            GitHub Repositories
+            Planned GitHub Repositories
           </h3>
           
           <div className="grid gap-6">
-            {repositories.map((repo, index) => (
+            {plannedRepositories.map((repo, index) => (
               <div key={index} className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-teal-400/50 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                   <div className="flex-1">
@@ -143,15 +147,14 @@ const Resources = () => {
                     
                     <div className="flex items-center gap-6 text-sm text-gray-400">
                       <span>Language: {repo.language}</span>
-                      <span>⭐ {repo.stars}</span>
-                      <span>🍴 {repo.forks}</span>
+                      <span className="text-yellow-400 font-semibold">{repo.status}</span>
                     </div>
                   </div>
                   
                   <div className="mt-4 lg:mt-0 lg:ml-6">
-                    <Button variant="outline" className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black">
-                      <ExternalLink className="mr-2" size={16} />
-                      View Repository
+                    <Button variant="outline" className="border-teal-400 text-teal-400 hover:bg-teal-400 hover:text-black" disabled>
+                      <Clock className="mr-2" size={16} />
+                      Coming Soon
                     </Button>
                   </div>
                 </div>
@@ -164,7 +167,7 @@ const Resources = () => {
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <Video className="text-blue-400 mr-3" size={32} />
-            Recommended Courses
+            Recommended Courses (Available Now)
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -179,7 +182,7 @@ const Resources = () => {
                     <div>Level: {course.level}</div>
                   </div>
                   
-                  <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white">
+                  <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white" onClick={() => window.open(course.url, '_blank')}>
                     <ExternalLink className="mr-2" size={16} />
                     Enroll Now
                   </Button>
@@ -193,17 +196,17 @@ const Resources = () => {
         <div className="text-center p-8 rounded-2xl bg-gradient-to-r from-green-500/10 to-teal-500/10 border border-green-500/20">
           <h3 className="text-2xl font-bold text-white mb-4">Club Knowledge Base</h3>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Access our comprehensive collection of notes, project documentation, 
-            and research papers compiled by club members.
+            Once launched, our comprehensive collection of notes, project documentation, 
+            and research papers will be compiled by club members and made available to all.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold">
-              <BookOpen className="mr-2" size={16} />
-              Browse Knowledge Base
+            <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold" disabled>
+              <Clock className="mr-2" size={16} />
+              Coming Soon
             </Button>
             <Button variant="outline" className="border-green-400 text-green-400 hover:bg-green-400 hover:text-black">
-              <Github className="mr-2" size={16} />
-              Contribute Resources
+              <ExternalLink className="mr-2" size={16} />
+              External Resources
             </Button>
           </div>
         </div>
