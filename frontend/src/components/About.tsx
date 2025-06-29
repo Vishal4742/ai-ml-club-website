@@ -16,7 +16,7 @@ const About = () => {
             About Our Club
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We are a newly inaugurated community of passionate students dedicated to advancing artificial intelligence 
+            We are preparing to launch a community of passionate students dedicated to advancing artificial intelligence 
             and machine learning knowledge through hands-on projects and collaborative learning at OCT Bhopal.
           </p>
         </div>
@@ -48,12 +48,12 @@ const About = () => {
         <div className="mb-16 p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
           <div className="flex items-center justify-center mb-6">
             <Calendar className="text-green-400 mr-3" size={32} />
-            <h3 className="text-2xl font-bold text-white">🎉 Newly Inaugurated in 2024</h3>
+            <h3 className="text-2xl font-bold text-white">🚀 Inauguration Coming Soon</h3>
           </div>
           <p className="text-center text-gray-300 max-w-2xl mx-auto">
-            We are excited to announce the official inauguration of our AI & ML Club at OCT Bhopal! 
-            This is the beginning of an exciting journey where we'll organize workshops, participate in hackathons, 
-            and build innovative projects together. Be part of our founding story!
+            We are excited to announce the upcoming inauguration of our AI & ML Club at OCT Bhopal! 
+            This will be the beginning of an exciting journey where we'll organize workshops, participate in hackathons, 
+            and build innovative projects together. Be part of our founding story from day one!
           </p>
         </div>
 

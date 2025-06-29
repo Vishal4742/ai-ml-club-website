@@ -5,40 +5,40 @@ const Events = () => {
   const upcomingEvents = [
     {
       title: "🎉 Club Inauguration Ceremony",
-      date: "2024-01-15",
-      time: "2:00 PM - 5:00 PM",
+      date: "TBD - Coming Soon",
+      time: "To be announced",
       location: "Main Auditorium, OCT Campus",
       attendees: "Open to all students",
       description: "Join us for the official inauguration of our AI & ML Club! Special guest speakers, networking, and exciting announcements about upcoming activities.",
       type: "Inauguration",
-      status: "Open",
+      status: "Planning",
       lumaUrl: "https://lu.ma/ai-ml-club-inauguration" // Replace with actual Luma event URL
     },
     {
       title: "AI Workshop: Neural Networks Fundamentals",
-      date: "2024-01-22",
-      time: "2:00 PM - 5:00 PM",
+      date: "TBD - After Inauguration",
+      time: "To be announced",
       location: "CS Lab, OCT Campus",
-      attendees: "45 registered",
+      attendees: "Registration opening soon",
       description: "Our first technical workshop! Deep dive into neural network architectures and implementation",
       type: "Workshop",
-      status: "Open",
+      status: "Planning",
       lumaUrl: "https://lu.ma/ai-workshop-neural-networks" // Replace with actual Luma event URL
     },
     {
       title: "ML Hackathon 2024 - Inaugural Edition",
-      date: "2024-02-05",
-      time: "9:00 AM - 6:00 PM",
+      date: "TBD - After Inauguration",
+      time: "To be announced",
       location: "Main Auditorium",
-      attendees: "120 teams registered",
+      attendees: "Registration opening soon",
       description: "Our first hackathon! 24-hour competition focusing on real-world ML solutions with amazing prizes",
       type: "Competition",
-      status: "Registration Closing Soon",
+      status: "Planning",
       lumaUrl: "https://lu.ma/ml-hackathon-2024" // Replace with actual Luma event URL
     }
   ];
 
-  const pastEvents = [
+  const preparationActivities = [
     {
       title: "Club Formation Meeting",
       date: "2024-01-10",
@@ -75,8 +75,8 @@ const Events = () => {
             Events & Activities
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join us for exciting inaugural events, workshops, and competitions that will 
-            accelerate your journey in AI and Machine Learning. All events are managed through Luma for seamless registration.
+            Get ready for exciting inaugural events, workshops, and competitions that will 
+            accelerate your journey in AI and Machine Learning. All events will be managed through Luma for seamless registration.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ const Events = () => {
         <div className="mb-16">
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <Calendar className="text-green-400 mr-3" size={32} />
-            Upcoming Inaugural Events
+            Planned Inaugural Events
           </h3>
           
           <div className="grid gap-6">
@@ -105,7 +105,7 @@ const Events = () => {
                         </span>
                       </div>
                       <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        event.status === 'Open' ? 'bg-green-500/20 text-green-400' :
+                        event.status === 'Planning' ? 'bg-blue-500/20 text-blue-400' :
                         'bg-yellow-500/20 text-yellow-400'
                       }`}>
                         {event.status}
@@ -117,12 +117,7 @@ const Events = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center text-gray-400">
                         <Calendar className="mr-2" size={16} />
-                        {new Date(event.date).toLocaleDateString('en-US', { 
-                          weekday: 'short', 
-                          year: 'numeric', 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })}
+                        {event.date}
                       </div>
                       <div className="flex items-center text-gray-400">
                         <Clock className="mr-2" size={16} />
@@ -144,8 +139,9 @@ const Events = () => {
                     <Button 
                       className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold"
                       onClick={() => handleLumaRegistration(event.lumaUrl)}
+                      disabled
                     >
-                      Register on Luma
+                      Coming Soon
                       <ExternalLink className="ml-2" size={16} />
                     </Button>
                   </div>
@@ -155,7 +151,7 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Past Events */}
+        {/* Preparation Activities */}
         <div>
           <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
             <Clock className="text-teal-400 mr-3" size={32} />
@@ -163,7 +159,7 @@ const Events = () => {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pastEvents.map((event, index) => (
+            {preparationActivities.map((event, index) => (
               <div key={index} className="group">
                 <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-teal-400/50 transition-all duration-300 hover:transform hover:scale-105">
                   <div className="h-48 overflow-hidden">

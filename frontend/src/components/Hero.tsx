@@ -8,7 +8,8 @@ import {
   Zap, 
   Sparkles,
   ChevronDown,
-  ExternalLink
+  ExternalLink,
+  Calendar
 } from "lucide-react";
 
 const Hero = () => {
@@ -20,7 +21,7 @@ const Hero = () => {
   }, []);
 
   const features = [
-    { icon: Zap, text: "Newly Launched", color: "text-yellow-400" },
+    { icon: Calendar, text: "Inauguration Soon", color: "text-yellow-400" },
     { icon: Star, text: "Innovation First", color: "text-purple-400" },
     { icon: Users, text: "Community Driven", color: "text-blue-400" },
     { icon: Sparkles, text: "Future Ready", color: "text-pink-400" }
@@ -75,21 +76,21 @@ const Hero = () => {
         <div className={`space-y-8 animate-fade-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass text-sm font-medium text-white/90 hover-lift">
-            <Sparkles className="w-4 h-4 mr-2 text-yellow-400" />
-            🎉 Newly Inaugurated AI & ML Club
+            <Calendar className="w-4 h-4 mr-2 text-yellow-400" />
+            🎉 Inauguration Coming Soon
           </div>
 
           {/* Main Heading */}
           <div className="space-y-6">
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight">
-              <span className="text-white">Build the Future</span>
+              <span className="text-white">AI & ML Club</span>
               <br />
-              <span className="text-gradient">With AI & ML</span>
+              <span className="text-gradient">Coming Soon</span>
             </h1>
             
             <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Welcome to our newly inaugurated AI & ML Club at OCT Bhopal! Join our innovative community 
-              where cutting-edge technology meets creative minds. Be part of our journey from day one.
+              Get ready for the launch of our AI & ML Club at OCT Bhopal! We're preparing an innovative community 
+              where cutting-edge technology meets creative minds. Join us from day one of our journey.
             </p>
           </div>
 
@@ -100,7 +101,7 @@ const Hero = () => {
               className="btn-modern text-lg px-8 py-4 hover-lift"
               onClick={handleGetStarted}
             >
-              Get Started
+              Learn More
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
@@ -108,10 +109,10 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="glass text-lg px-8 py-4 border-white/20 text-white hover:bg-white/10 hover-lift"
-              onClick={handleWatchDemo}
+              onClick={handleJoinUs}
             >
-              <Play className="mr-2 w-5 h-5" />
-              Watch Demo
+              <Users className="mr-2 w-5 h-5" />
+              Join Waitlist
               <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
           </div>
@@ -133,16 +134,16 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-1">50+</div>
-              <div className="text-sm text-white/70">Founding Members</div>
+              <div className="text-3xl font-bold text-gradient mb-1">12</div>
+              <div className="text-sm text-white/70">Core Team Members</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-gradient-2 mb-1">5+</div>
-              <div className="text-sm text-white/70">Upcoming Events</div>
+              <div className="text-sm text-white/70">Planned Events</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-gradient mb-1">2024</div>
-              <div className="text-sm text-white/70">Year Founded</div>
+              <div className="text-sm text-white/70">Launch Year</div>
             </div>
           </div>
         </div>
