@@ -19,19 +19,21 @@ const ScrollProgress = () => {
   return (
     <div style={{
       position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '4px',
+      top: '50%',
+      right: '20px',
+      width: '4px',
+      height: '100px',
       zIndex: 9999,
-      background: 'transparent',
+      background: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: '2px',
+      transform: 'translateY(-50%)',
     }}>
       <div
         style={{
-          width: `${scroll}%`,
-          height: '100%',
-          background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
-          transition: 'width 0.2s cubic-bezier(.4,1.3,.6,1)',
+          width: '100%',
+          height: `${scroll}%`,
+          background: 'linear-gradient(180deg, #667eea 0%, #764ba2 100%)',
+          transition: 'height 0.2s cubic-bezier(.4,1.3,.6,1)',
           borderRadius: '2px',
         }}
       />

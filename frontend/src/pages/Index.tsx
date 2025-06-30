@@ -52,7 +52,6 @@ const Index = memo(() => {
             <Hero />
           </section>
         </Suspense>
-        {/* Timeline removed */}
         <Suspense fallback={<LoadingSpinner />}>
           <section id="about">
             <About />
