@@ -1,91 +1,106 @@
-import { useState, useEffect, memo } from 'react';
-import { useLazyLoad } from '@/hooks/use-performance';
+import { useState, useRef, useEffect, memo } from 'react';
+import { cn } from '@/lib/utils';
 
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  fallback?: string;
   className?: string;
-  loading?: 'lazy' | 'eager';
-  sizes?: string;
   width?: number;
   height?: number;
+  priority?: boolean;
+  placeholder?: string;
+  sizes?: string;
+  quality?: number;
 }
 
 const OptimizedImage = memo(({
   src,
   alt,
-  fallback,
-  className = '',
-  loading = 'lazy',
-  sizes,
+  className,
   width,
-  height
+  height,
+  priority = false,
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMyAxN0gyN1YxOUgxM1YxN1oiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTEzIDIxSDI3VjIzSDEzVjIxWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTMgMjVIMjdWMjdIMTNWMjVaIiBmaWxsPSIjOUNBM0FGIi8+Cjwvc3ZnPgo=',
+  sizes = '100vw',
+  quality = 75
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const { imageSrc, isLoaded: lazyLoaded } = useLazyLoad(src, fallback);
+  const [isError, setIsError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (lazyLoaded) {
+    if (priority) {
       setIsLoaded(true);
     }
-  }, [lazyLoaded]);
-
-  const handleError = () => {
-    setHasError(true);
-    if (fallback && imageSrc !== fallback) {
-      // Try fallback image
-      const img = new Image();
-      img.src = fallback;
-      img.onload = () => {
-        setIsLoaded(true);
-      };
-      img.onerror = () => {
-        // Show placeholder if both images fail
-        setIsLoaded(true);
-      };
-    } else {
-      setIsLoaded(true);
-    }
-  };
+  }, [priority]);
 
   const handleLoad = () => {
     setIsLoaded(true);
-    setHasError(false);
   };
 
+  const handleError = () => {
+    setIsError(true);
+    setIsLoaded(true);
+  };
+
+  const imageClasses = cn(
+    'transition-opacity duration-300',
+    {
+      'opacity-0': !isLoaded,
+      'opacity-100': isLoaded,
+    },
+    className
+  );
+
+  const placeholderClasses = cn(
+    'absolute inset-0 bg-gray-200 animate-pulse',
+    {
+      'opacity-0': isLoaded,
+      'opacity-100': !isLoaded,
+    }
+  );
+
+  if (isError) {
+    return (
+      <div className={cn('flex items-center justify-center bg-gray-100 text-gray-500', className)}>
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+        </svg>
+      </div>
+    );
+  }
+
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className="relative overflow-hidden">
+      {/* Placeholder */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+        <div className={placeholderClasses}>
+          <img
+            src={placeholder}
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
         </div>
       )}
       
+      {/* Main Image */}
       <img
-        src={imageSrc}
+        ref={imgRef}
+        src={src}
         alt={alt}
-        loading={loading}
-        sizes={sizes}
         width={width}
         height={height}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        sizes={sizes}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        className={imageClasses}
         onLoad={handleLoad}
         onError={handleError}
         style={{
           willChange: 'opacity',
-          transform: 'translateZ(0)'
         }}
       />
-      
-      {hasError && !isLoaded && (
-        <div className="absolute inset-0 bg-gray-700 flex items-center justify-center">
-          <div className="text-gray-400 text-sm">Image not available</div>
-        </div>
-      )}
     </div>
   );
 });

@@ -2,16 +2,13 @@ import { useEffect, lazy, Suspense, memo } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
 import ThreeDotsMenu from "@/components/ThreeDotsMenu";
 import LoadingSpinner from "@/components/LoadingSpinner";
-// import Timeline from "@/components/Timeline";
 
 // Lazy load components for better performance
 const Header = lazy(() => import("@/components/Header"));
-const Hero = lazy(() => import("@/components/Hero"));
 const About = lazy(() => import("@/components/About"));
-const Contact = lazy(() => import("@/components/Contact"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-const Index = memo(() => {
+const AboutPage = memo(() => {
   useEffect(() => {
     // Simple intersection observer for animations
     const observerOptions = {
@@ -48,19 +45,8 @@ const Index = memo(() => {
       
       <main>
         <Suspense fallback={<LoadingSpinner />}>
-          <section id="home">
-            <Hero />
-          </section>
-        </Suspense>
-        {/* Timeline removed */}
-        <Suspense fallback={<LoadingSpinner />}>
           <section id="about">
             <About />
-          </section>
-        </Suspense>
-        <Suspense fallback={<LoadingSpinner />}>
-          <section id="contact">
-            <Contact />
           </section>
         </Suspense>
       </main>
@@ -72,6 +58,6 @@ const Index = memo(() => {
   );
 });
 
-Index.displayName = 'Index';
+AboutPage.displayName = 'AboutPage';
 
-export default Index;
+export default AboutPage; 

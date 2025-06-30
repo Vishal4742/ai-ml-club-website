@@ -1,0 +1,110 @@
+{
+  "name": "AI & ML Club - OCT Bhopal",
+  "short_name": "OCT AI/ML Club",
+  "description": "Official website of the AI & ML Club at Oriental College of Technology, Bhopal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["education", "technology", "science"],
+  "icons": [
+    {
+      "src": "/assets/images/oct-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/oct-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn about our AI & ML Club",
+      "url": "/about",
+      "icons": [
+        {
+          "src": "/assets/images/oct-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "short_name": "Events",
+      "description": "View upcoming events",
+      "url": "/events",
+      "icons": [
+        {
+          "src": "/assets/images/oct-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Team",
+      "short_name": "Team",
+      "description": "Meet our team members",
+      "url": "/team",
+      "icons": [
+        {
+          "src": "/assets/images/oct-logo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Homepage on desktop"
+    },
+    {
+      "src": "/assets/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Homepage on mobile"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+oct",
+      "url": "/?protocol=%s"
+    }
+  ]
+} 

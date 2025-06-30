@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, memo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   Menu, 
@@ -11,6 +12,7 @@ import { useOptimizedScroll } from "@/hooks/use-performance";
 const Header = memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Optimized scroll handling
   const handleScroll = useCallback((scrollY: number) => {
@@ -20,23 +22,36 @@ const Header = memo(() => {
   useOptimizedScroll(handleScroll, 16);
 
   const navItems = [
-    { name: "Events", href: "#events" },
-    { name: "Projects", href: "#projects" },
-    { name: "Team", href: "#team" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Resources", href: "#resources" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Events", href: "/events" },
+    { name: "Team", href: "/team" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Archive", href: "/archive" },
   ];
 
   const handleJoinUs = useCallback(() => {
-    // Show a message to use ThreeDotsMenu for Contact section
-    alert("Please use the Three Dots Menu (top-right) to access the Contact section and join our waitlist!");
+    // Scroll to contact section on home page
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // If not on home page, navigate to home and then scroll to contact
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.querySelector('#contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
     setIsOpen(false); // Close mobile menu if open
-  }, []);
+  }, [navigate]);
 
   const handleLogoClick = useCallback(() => {
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+    // Navigate to home page
+    navigate('/');
+  }, [navigate]);
 
   const toggleMenu = useCallback(() => {
     setIsOpen(prev => !prev);
@@ -52,47 +67,38 @@ const Header = memo(() => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div 
-            className="flex items-center space-x-3 group cursor-pointer"
-            onClick={handleLogoClick}
-          >
-            <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-white group-hover:text-gradient transition-colors duration-300">
-                AI & ML Club
-              </span>
-              <span className="text-xs text-white/60">OCT Bhopal</span>
-            </div>
+          {/* Logo and Club Name */}
+          <div className="flex items-center space-x-3 group cursor-pointer" onClick={handleLogoClick}>
+            <Link to="/" className="flex items-center space-x-2">
+              <img
+                src="/assets/images/oct-logo.png"
+                alt="Oriental College of Technology Logo"
+                className="w-12 h-12 object-contain bg-white rounded-full p-1 shadow-md"
+                style={{ background: 'white' }}
+              />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-white group-hover:text-gradient transition-colors duration-300">
+                  AI & ML Club
+                </span>
+                <span className="text-xs text-white/60">OCT Bhopal</span>
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="relative text-white/80 hover:text-white transition-colors duration-300 font-medium group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg group-hover:w-full transition-all duration-300"></span>
-              </a>
+              </Link>
             ))}
           </nav>
-
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button 
-              className="btn-modern"
-              onClick={handleJoinUs}
-            >
-              Join Us
-              <ChevronDown className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -100,7 +106,7 @@ const Header = memo(() => {
             onClick={toggleMenu}
             aria-label="Toggle mobile menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
@@ -113,24 +119,16 @@ const Header = memo(() => {
           <div className="glass backdrop-blur-xl border-t border-white/20 py-6">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-white/80 hover:text-white transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-white/10"
                   onClick={closeMenu}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <div className="pt-4 space-y-3 border-t border-white/20">
-                <Button 
-                  className="w-full btn-modern"
-                  onClick={handleJoinUs}
-                >
-                  Join Us
-                </Button>
-              </div>
             </nav>
           </div>
         </div>

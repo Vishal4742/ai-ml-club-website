@@ -21,37 +21,117 @@ export const debounce = (func: Function, wait: number) => {
   };
 };
 
-// Performance optimized scroll hook
-export const useOptimizedScroll = (callback: (scrollY: number) => void, threshold = 16) => {
-  const callbackRef = useRef(callback);
-  callbackRef.current = callback;
+// Performance monitoring hook
+export const usePerformanceMonitor = () => {
+  const observerRef = useRef<PerformanceObserver | null>(null);
 
-  const throttledCallback = useCallback(
-    throttle((scrollY: number) => {
-      callbackRef.current(scrollY);
-    }, threshold),
-    [threshold]
-  );
+  const logPerformanceMetric = useCallback((name: string, value: number) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`🚀 Performance: ${name} = ${value.toFixed(2)}ms`);
+    }
+    
+    // Send to analytics in production
+    if (process.env.NODE_ENV === 'production') {
+      // You can send to Google Analytics, Sentry, or your analytics service
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'performance', {
+          event_category: 'web_vitals',
+          event_label: name,
+          value: Math.round(value),
+        });
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Monitor Core Web Vitals
+    if ('PerformanceObserver' in window) {
+      try {
+        observerRef.current = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            const metric = entry as PerformanceEntry;
+            
+            switch (metric.entryType) {
+              case 'largest-contentful-paint':
+                logPerformanceMetric('LCP', metric.startTime);
+                break;
+              case 'first-input':
+                logPerformanceMetric('FID', (metric as any).processingStart - metric.startTime);
+                break;
+              case 'layout-shift':
+                logPerformanceMetric('CLS', (metric as any).value);
+                break;
+              case 'navigation':
+                logPerformanceMetric('TTFB', (metric as any).responseStart - metric.startTime);
+                break;
+            }
+          }
+        });
+
+        observerRef.current.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift', 'navigation'] });
+      } catch (error) {
+        console.warn('Performance monitoring not supported:', error);
+      }
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [logPerformanceMetric]);
+
+  return { logPerformanceMetric };
+};
+
+// Optimized scroll handler
+export const useOptimizedScroll = (callback: (scrollY: number) => void, throttleMs: number = 16) => {
+  const tickingRef = useRef(false);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      throttledCallback(window.scrollY);
+      const scrollY = window.scrollY;
+      
+      if (!tickingRef.current) {
+        requestAnimationFrame(() => {
+          if (Math.abs(scrollY - lastScrollYRef.current) > 5) {
+            callback(scrollY);
+            lastScrollYRef.current = scrollY;
+          }
+          tickingRef.current = false;
+        });
+        tickingRef.current = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [throttledCallback]);
+  }, [callback, throttleMs]);
 };
 
-// Performance optimized intersection observer hook
+// Intersection Observer for lazy loading
 export const useIntersectionObserver = (
-  callback: (entry: IntersectionObserverEntry) => void,
+  callback: (entries: IntersectionObserverEntry[]) => void,
   options: IntersectionObserverInit = {}
 ) => {
-  const callbackRef = useRef(callback);
-  callbackRef.current = callback;
-
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    if ('IntersectionObserver' in window) {
+      observerRef.current = new IntersectionObserver(callback, {
+        rootMargin: '50px',
+        threshold: 0.1,
+        ...options,
+      });
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [callback, options]);
 
   const observe = useCallback((element: Element) => {
     if (observerRef.current) {
@@ -65,27 +145,84 @@ export const useIntersectionObserver = (
     }
   }, []);
 
+  return { observe, unobserve };
+};
+
+// Memory usage monitoring
+export const useMemoryMonitor = () => {
   useEffect(() => {
-    const defaultOptions: IntersectionObserverInit = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px',
-      ...options
-    };
+    if ('memory' in performance) {
+      const checkMemory = () => {
+        const memory = (performance as any).memory;
+        const usedMB = memory.usedJSHeapSize / 1024 / 1024;
+        const totalMB = memory.totalJSHeapSize / 1024 / 1024;
+        const limitMB = memory.jsHeapSizeLimit / 1024 / 1024;
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        callbackRef.current(entry);
-      });
-    }, defaultOptions);
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`🧠 Memory: ${usedMB.toFixed(1)}MB / ${totalMB.toFixed(1)}MB (${limitMB.toFixed(1)}MB limit)`);
+        }
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
+        // Warn if memory usage is high
+        if (usedMB / limitMB > 0.8) {
+          console.warn('⚠️ High memory usage detected');
+        }
+      };
+
+      const interval = setInterval(checkMemory, 30000); // Check every 30 seconds
+      return () => clearInterval(interval);
+    }
+  }, []);
+};
+
+// Error boundary hook
+export const useErrorBoundary = (onError?: (error: Error, errorInfo: any) => void) => {
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      const error = new Error(event.message);
+      error.stack = event.error?.stack;
+      
+      if (onError) {
+        onError(error, { componentStack: event.error?.stack });
+      }
+      
+      if (process.env.NODE_ENV === 'production') {
+        // Send to error tracking service
+        if (typeof window !== 'undefined' && (window as any).Sentry) {
+          (window as any).Sentry.captureException(error);
+        }
       }
     };
-  }, [options]);
 
-  return { observe, unobserve };
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      const error = new Error('Unhandled Promise Rejection');
+      error.stack = event.reason?.stack;
+      
+      if (onError) {
+        onError(error, { promise: event.promise });
+      }
+    };
+
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener('error', handleError);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
+    };
+  }, [onError]);
+};
+
+// Resource loading optimization
+export const useResourcePreload = (resources: string[]) => {
+  useEffect(() => {
+    resources.forEach((resource) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = resource.endsWith('.css') ? 'style' : 'script';
+      link.href = resource;
+      document.head.appendChild(link);
+    });
+  }, [resources]);
 };
 
 // Performance optimized resize hook

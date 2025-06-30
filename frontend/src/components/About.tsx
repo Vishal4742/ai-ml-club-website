@@ -66,7 +66,7 @@ const About = () => {
             Meet Our Leadership Team
           </h3>
           <p className="text-gray-300 max-w-xl mx-auto text-sm">
-            Our official founding team includes Faculty Coordinator {facultyCoordinator?.name || "Prof. Shamaila Khan"}, President {president?.name || "Vishal Kumar"}, Vice President Umesh Patel, General Manager Prakhar Sahu, and a dedicated group of managers, designers, tech leads, and creative professionals. Together, we are committed to building a vibrant AI & ML community at OCT Bhopal from day one.
+            Our official founding team includes Faculty Coordinator {facultyCoordinator?.name || "Prof. Shamaila Khan"}, President {president?.name || "Vishal Kumar"}, Vice President Umesh Patel, and a dedicated group of managers, designers, tech leads, and creative professionals. Together, we are committed to building a vibrant AI & ML community at OCT Bhopal from day one.
           </p>
         </div>
 
@@ -124,17 +124,11 @@ const About = () => {
                   </div>
                   <h4 className="text-lg font-bold text-white mb-1">{member.name}</h4>
                   <p className="text-green-400 font-semibold mb-2 text-sm">{member.role}</p>
-                  <p className="text-gray-300 text-xs">Founding team member of the AI & ML Club.</p>
+                  <p className="text-gray-300 text-xs">{member.bio}</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="text-center">
-          <Button className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 text-black font-semibold px-6 py-2 rounded-full">
-            Join Our Founding Community
-          </Button>
         </div>
       </div>
     </section>

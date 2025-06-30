@@ -41,14 +41,6 @@ const Hero = memo(() => {
     window.open(demoUrl, '_blank');
   }, []);
 
-  const handleJoinUs = useCallback(() => {
-    // Scroll to contact section for registration
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, []);
-
   const handleScrollDown = useCallback(() => {
     // Scroll to next section
     const aboutSection = document.querySelector('#about');
@@ -102,17 +94,6 @@ const Hero = memo(() => {
             >
               Learn More
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="glass text-lg px-8 py-4 border-white/20 text-white hover:bg-white/10 hover-lift"
-              onClick={handleJoinUs}
-            >
-              <Users className="mr-2 w-5 h-5" />
-              Join Waitlist
-              <ExternalLink className="ml-2 w-4 h-4" />
             </Button>
           </div>
 

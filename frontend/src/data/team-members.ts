@@ -11,6 +11,7 @@ export interface TeamMember {
   linkedin?: string;
   twitter?: string;
   email?: string;
+  responsibilities?: string;
 }
 
 export const teamMembers: TeamMember[] = [
@@ -20,7 +21,7 @@ export const teamMembers: TeamMember[] = [
     role: "Faculty Coordinator",
     image: "/assets/images/team/shamaila-khan.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
-    bio: "Faculty Coordinator of the AI & ML Club, providing academic guidance and institutional support. Dedicated to fostering student growth and ensuring the club's activities align with educational excellence and innovation.",
+    bio: "",
     skills: ["Academic Leadership", "Mentorship", "Curriculum Development", "Research Guidance"],
     achievements: ["Providing faculty oversight", "Academic mentorship", "Institutional coordination", "Research collaboration"]
   },
@@ -30,9 +31,10 @@ export const teamMembers: TeamMember[] = [
     role: "President",
     image: "/assets/images/team/vishal-kumar.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "President of the AI & ML Club, leading the founding team and setting the vision for innovation. Passionate about creating opportunities for students to explore and excel in artificial intelligence and machine learning.",
+    bio: "",
     skills: ["Leadership", "AI Strategy", "Team Building", "Strategic Planning"],
-    achievements: ["Leading club formation", "Establishing club vision and mission", "Coordinating with faculty advisors"]
+    achievements: ["Leading club formation", "Establishing club vision and mission", "Coordinating with faculty advisors"],
+    responsibilities: "Overall club leader. Responsible for strategic decisions, event approvals, and club growth. Main representative during college events and with external organizations."
   },
   {
     id: 2,
@@ -40,109 +42,131 @@ export const teamMembers: TeamMember[] = [
     role: "Vice President",
     image: "/assets/images/team/umesh-patel.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    bio: "Vice President, supporting club operations and member engagement. Dedicated to fostering a collaborative environment where every member can thrive and contribute to our AI & ML community.",
+    bio: "",
     skills: ["Management", "Event Coordination", "Member Engagement", "Communication"],
-    achievements: ["Supporting club formation", "Planning member onboarding process", "Coordinating team activities"]
+    achievements: ["Supporting club formation", "Planning member onboarding process", "Coordinating team activities"],
+    responsibilities: "Supports President in all decisions. Acts as second-in-command. Takes charge in President's absence and helps coordinate between all departments."
   },
   {
     id: 3,
-    name: "Prakhar Sahu",
-    role: "General Manager",
-    image: "/assets/images/team/prakhar-sahu.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    bio: "General Manager, ensuring smooth functioning of all club activities. Focused on operational excellence and creating efficient processes for club management and event execution.",
-    skills: ["Organization", "Logistics", "Process Management", "Team Coordination"],
-    achievements: ["Planning club launch", "Establishing operational procedures", "Streamlining event planning"]
+    name: "Arpit Pandey",
+    role: "Tech Lead",
+    image: "/assets/images/team/arpit-pandey.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Programming", "AI/ML", "Technical Leadership", "System Architecture"],
+    achievements: ["Developing club website", "Implementing technical infrastructure", "Leading development initiatives"],
+    responsibilities: "Manages all technical activities, workshops, coding events, and AI/ML projects. Responsible for tech event execution, technical guidance, and club's coding culture."
   },
   {
     id: 4,
-    name: "Gaurav Jain",
-    role: "Event Manager & Special Performance",
-    image: "/assets/images/team/gaurav-jain.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, planning and organizing club events and special performances. Creative professional dedicated to delivering memorable experiences that will inspire and engage our community.",
-    skills: ["Event Planning", "Coordination", "Performance Management", "Creative Direction"],
-    achievements: ["Planning inaugural events", "Designing inauguration ceremony", "Coordinating special performances"]
-  },
-  {
-    id: 5,
-    name: "Archi Sharma",
-    role: "Event Manager & Special Performance",
-    image: "/assets/images/team/archi-sharma.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, co-organizing events and performances. Passionate about creating inclusive and engaging experiences that will bring our AI & ML community together.",
-    skills: ["Teamwork", "Creativity", "Event Coordination", "Community Building"],
-    achievements: ["Planning inaugural ceremony", "Coordinating event logistics", "Enhancing member experience"]
-  },
-  {
-    id: 6,
-    name: "Parul Ajit",
-    role: "Event Manager & Special Performance",
-    image: "/assets/images/team/parul-ajit.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "Event Manager, supporting event logistics and special activities. Detail-oriented professional ensuring every event will run smoothly and exceed expectations.",
-    skills: ["Logistics", "Support", "Attention to Detail", "Problem Solving"],
-    achievements: ["Supporting event planning", "Managing technical requirements", "Ensuring smooth operations"]
-  },
-  {
-    id: 7,
-    name: "Arnav Singh",
-    role: "Graphic Designer & Event Speaker",
-    image: "/assets/images/team/arnav-singh.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
-    bio: "Graphic Designer and Event Speaker, creating visuals and preparing presentations for events. Creative professional combining design expertise with public speaking skills to communicate complex AI concepts effectively.",
-    skills: ["Design", "Public Speaking", "Visual Communication", "Content Creation"],
-    achievements: ["Designing club branding", "Creating visual identity", "Preparing engaging presentations"]
-  },
-  {
-    id: 8,
     name: "Ayush Kumar",
     role: "Tech Lead",
     image: "/assets/images/team/ayush-kumar.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
-    bio: "Tech Lead, overseeing technical projects and club technology. Experienced developer passionate about leveraging technology to enhance club operations and member experience.",
+    bio: "",
     skills: ["Programming", "AI/ML", "Technical Leadership", "System Architecture"],
-    achievements: ["Developing club website", "Implementing technical infrastructure", "Leading development initiatives"]
+    achievements: ["Developing club website", "Implementing technical infrastructure", "Leading development initiatives"],
+    responsibilities: "Manages all technical activities, workshops, coding events, and AI/ML projects. Responsible for tech event execution, technical guidance, and club's coding culture."
+  },
+  {
+    id: 5,
+    name: "Khushku Verma",
+    role: "Tech Lead",
+    image: "/assets/images/team/khushku-verma.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Programming", "AI/ML", "Technical Leadership", "System Architecture"],
+    achievements: ["Developing club website", "Implementing technical infrastructure", "Leading development initiatives"],
+    responsibilities: "Manages all technical activities, workshops, coding events, and AI/ML projects. Responsible for tech event execution, technical guidance, and club's coding culture."
+  },
+  {
+    id: 6,
+    name: "Gaurav Jain",
+    role: "Event Head",
+    image: "/assets/images/team/gaurav-jain.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Event Planning", "Coordination", "Performance Management", "Creative Direction"],
+    achievements: ["Planning inaugural events", "Designing inauguration ceremony", "Coordinating special performances"],
+    responsibilities: "Plans and executes all club events (seminars, workshops, hackathons, etc.). Manages logistics, scheduling, and ensures smooth flow of activities during any event."
+  },
+  {
+    id: 7,
+    name: "Archi Sharma",
+    role: "Event Head",
+    image: "/assets/images/team/archi-sharma.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Teamwork", "Creativity", "Event Coordination", "Community Building"],
+    achievements: ["Planning inaugural ceremony", "Coordinating event logistics", "Enhancing member experience"],
+    responsibilities: "Plans and executes all club events (seminars, workshops, hackathons, etc.). Manages logistics, scheduling, and ensures smooth flow of activities during any event."
+  },
+  {
+    id: 8,
+    name: "Parul Ajit",
+    role: "Event Head",
+    image: "/assets/images/team/parul-ajit.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Logistics", "Support", "Attention to Detail", "Problem Solving"],
+    achievements: ["Supporting event planning", "Managing technical requirements", "Ensuring smooth operations"],
+    responsibilities: "Plans and executes all club events (seminars, workshops, hackathons, etc.). Manages logistics, scheduling, and ensures smooth flow of activities during any event."
   },
   {
     id: 9,
-    name: "Arpit Pandey",
-    role: "Public Relation",
-    image: "/assets/images/team/arpit-pandey.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "Public Relation, managing club communications and outreach. Strategic communicator building relationships with stakeholders and promoting our club's mission and vision.",
-    skills: ["Communication", "Networking", "Media Relations", "Brand Management"],
-    achievements: ["Building club's public profile", "Establishing media partnerships", "Enhancing external communications"]
+    name: "Arnav Singh",
+    role: "Communication Lead",
+    image: "/assets/images/team/arnav-singh.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Design", "Public Speaking", "Visual Communication", "Content Creation"],
+    achievements: ["Designing club branding", "Creating visual identity", "Preparing engaging presentations"],
+    responsibilities: "Handles design tasks and prepares presentations for events. Responsible for creating visuals and delivering engaging presentations for club activities."
   },
   {
     id: 10,
+    name: "Prakhar Sahu",
+    role: "Media Relations",
+    image: "/assets/images/team/prakhar-sahu.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+    bio: "",
+    skills: ["Organization", "Logistics", "Process Management", "Team Coordination"],
+    achievements: ["Planning club launch", "Establishing operational procedures", "Streamlining event planning"],
+    responsibilities: "Manages all club operations, logistics, and event execution. Responsible for ensuring smooth functioning of club activities and event planning."
+  },
+  {
+    id: 11,
     name: "Prince Kumar",
     role: "Discipline Head",
     image: "/assets/images/team/prince-kumar.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    bio: "Discipline Head, ensuring order and discipline in club activities. Dedicated to maintaining high standards and creating a respectful environment for all members.",
+    bio: "",
     skills: ["Discipline", "Leadership", "Conflict Resolution", "Policy Enforcement"],
-    achievements: ["Establishing club guidelines", "Setting behavioral standards", "Ensuring member compliance"]
+    achievements: ["Establishing club guidelines", "Setting behavioral standards", "Ensuring member compliance"],
+    responsibilities: "Maintains discipline and decorum during all club meetings and events. Ensures rules are followed by team and attendees."
   },
   {
-    id: 11,
+    id: 12,
     name: "Khushi Kumari",
     role: "Photographer",
     image: "/assets/images/team/khushi-kumari.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
-    bio: "Photographer, preparing to capture moments at club events. Creative professional ready to document our journey and preserve memories of our club's growth and achievements.",
+    bio: "",
     skills: ["Photography", "Creativity", "Visual Storytelling", "Event Coverage"],
-    achievements: ["Preparing event documentation", "Setting up photo galleries", "Planning member photography"]
+    achievements: ["Preparing event documentation", "Setting up photo galleries", "Planning member photography"],
+    responsibilities: "Captures photos during all club events, workshops, and activities. Responsible for maintaining a media archive for future promotions."
   },
   {
-    id: 12,
+    id: 13,
     name: "Pratish Mondal",
-    role: "Video Editor / Videographer",
+    role: "Video Editor",
     image: "/assets/images/team/pratish-mondal.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face",
-    bio: "Video Editor and Videographer, preparing to produce and edit club videos. Multimedia professional ready to create compelling content that showcases our club's activities and achievements.",
+    bio: "",
     skills: ["Video Editing", "Videography", "Content Production", "Storytelling"],
-    achievements: ["Planning club promo video", "Preparing event highlights", "Developing multimedia content"]
+    achievements: ["Planning club promo video", "Preparing event highlights", "Developing multimedia content"],
+    responsibilities: "Records and edits videos for events, after-movies, social media content, and promotional materials for the club."
   }
 ];
 

@@ -1,6 +1,6 @@
-# AI & ML Club Website
+# AI & ML Club - OCT Bhopal Frontend
 
-A modern, responsive website for the AI & ML Club at Oriental College of Technology, Bhopal. Built with React, TypeScript, and Tailwind CSS.
+A high-performance, modern React application for the AI & ML Club at Oriental College of Technology, Bhopal.
 
 ## 🚀 Features
 
@@ -13,6 +13,17 @@ A modern, responsive website for the AI & ML Club at Oriental College of Technol
 - **Performance Optimized**: Fast loading with code splitting and lazy loading
 - **SEO Ready**: Optimized meta tags and structured data
 - **Accessibility**: WCAG compliant with proper ARIA labels
+
+## 🚀 Performance Optimizations
+
+This project is built with performance in mind, featuring:
+
+- **Lazy Loading**: Route-based code splitting for faster initial load
+- **Image Optimization**: Automatic lazy loading and optimization
+- **Service Worker**: Offline functionality and caching
+- **PWA Support**: Installable web app with offline capabilities
+- **Bundle Optimization**: Advanced chunk splitting and compression
+- **Core Web Vitals**: Optimized for LCP, FID, and CLS
 
 ## 🛠️ Tech Stack
 
@@ -52,6 +63,51 @@ A modern, responsive website for the AI & ML Club at Oriental College of Technol
 4. **Open your browser**
    Navigate to `http://localhost:8080`
 
+## 📦 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🛠️ Available Scripts
+
+### Development
+```bash
+npm run dev          # Start development server
+npm run type-check   # Run TypeScript type checking
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint issues
+npm run format       # Format code with Prettier
+npm run format:check # Check code formatting
+```
+
+### Building & Testing
+```bash
+npm run build        # Build for production
+npm run build:dev    # Build for development
+npm run build:analyze # Build and analyze bundle
+npm run test         # Run tests
+npm run test:ui      # Run tests with UI
+npm run test:coverage # Run tests with coverage
+```
+
+### Optimization
+```bash
+npm run optimize     # Run optimization checks
+npm run optimize:full # Build and run full optimization
+npm run clean        # Clean build artifacts
+```
+
 ## 🏗️ Build & Deploy
 
 ### Local Build
@@ -86,18 +142,20 @@ npm run preview
 
 ```
 frontend/
+├── public/                 # Static assets
+│   ├── sw.js              # Service worker
+│   ├── manifest.json      # PWA manifest
+│   └── offline.html       # Offline page
 ├── src/
-│   ├── components/          # React components
-│   │   ├── ui/             # shadcn/ui components
-│   │   └── ...             # Custom components
-│   ├── data/               # Static data and configurations
-│   ├── hooks/              # Custom React hooks
-│   ├── lib/                # Utility functions
-│   ├── pages/              # Page components
-│   └── assets/             # Images and static assets
-├── public/                 # Public assets
-├── dist/                   # Build output
-└── config files           # Vite, TypeScript, etc.
+│   ├── components/        # React components
+│   ├── pages/            # Page components
+│   ├── hooks/            # Custom hooks
+│   ├── utils/            # Utility functions
+│   ├── lib/              # Library configurations
+│   └── data/             # Static data
+├── scripts/
+│   └── optimize.js       # Optimization script
+└── docs/                 # Documentation
 ```
 
 ## 🎨 Customization
@@ -190,7 +248,7 @@ VITE_ANALYTICS_ID=your-analytics-id
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Run optimization checks: `npm run optimize`
 5. Submit a pull request
 
 ## 📞 Support

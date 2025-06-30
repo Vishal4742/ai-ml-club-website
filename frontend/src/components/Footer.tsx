@@ -1,4 +1,5 @@
 import { Heart, Code, Brain, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -27,12 +28,10 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
-              <li><a href="#events" className="text-gray-400 hover:text-green-400 transition-colors">Events</a></li>
-              <li><a href="#projects" className="text-gray-400 hover:text-green-400 transition-colors">Projects</a></li>
-              <li><a href="#gallery" className="text-gray-400 hover:text-green-400 transition-colors">Gallery</a></li>
-              <li><a href="#resources" className="text-gray-400 hover:text-green-400 transition-colors">Resources</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-green-400 transition-colors">Contact</a></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-green-400 transition-colors">About Us</Link></li>
+              <li><Link to="/events" className="text-gray-400 hover:text-green-400 transition-colors">Events</Link></li>
+              <li><Link to="/gallery" className="text-gray-400 hover:text-green-400 transition-colors">Gallery</Link></li>
+              <li><Link to="/#contact" className="text-gray-400 hover:text-green-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -44,7 +43,7 @@ const Footer = () => {
                 Oriental College of Technology<br />
                 Bhopal, Madhya Pradesh
               </li>
-              <li className="text-gray-400">aimlclub@oct.edu.in</li>
+              <li className="text-gray-400">aimlcluboct@gmail.com</li>
               <li className="text-gray-400 flex items-center">
                 <Clock className="mr-1" size={14} />
                 Phone: Coming Soon
