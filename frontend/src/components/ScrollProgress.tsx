@@ -32,9 +32,10 @@ const ScrollProgress = () => {
         style={{
           width: '100%',
           height: `${scroll}%`,
-          background: 'linear-gradient(180deg, #667eea 0%, #764ba2 100%)',
+          background: 'linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)',
           transition: 'height 0.2s cubic-bezier(.4,1.3,.6,1)',
           borderRadius: '2px',
+          boxShadow: '0 0 10px rgba(251, 191, 36, 0.5)',
         }}
       />
     </div>
