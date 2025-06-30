@@ -11,7 +11,7 @@ const Archive = memo(() => {
       <Suspense fallback={<LoadingSpinner />}>
         <Header />
       </Suspense>
-      <main className="max-w-5xl mx-auto py-16 px-4 text-center">
+      <main className="max-w-5xl mx-auto py-16 px-4 text-center pt-20">
         <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">Archive</h1>
         <p className="text-lg text-gray-300 mb-8">
           Explore our archive of past events, activities, and club milestones.

@@ -51,7 +51,7 @@ const Contact = () => {
     <section id="contact" className="py-10 bg-black">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-black mb-2 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent tracking-tight">
             Contact Us
           </h2>
         </div>
@@ -62,7 +62,7 @@ const Contact = () => {
               <a
                 key={idx}
                 href={info.link}
-                className="flex items-center gap-3 p-3 rounded-lg bg-white/3 border border-white/10 hover:bg-white/5 transition-colors text-sm"
+                className="flex items-center gap-3 p-3 rounded-lg bg-white/3 border border-white/10 hover:bg-white/5 transition-colors text-sm font-medium tracking-wide"
               >
                 <info.icon className="w-4 h-4 text-green-400" />
                 <span className="text-gray-200">{info.details}</span>
@@ -72,18 +72,18 @@ const Contact = () => {
           {/* Leadership Contact */}
           <div className="flex flex-col items-center justify-center gap-2 p-3 rounded-lg bg-white/3 border border-white/10 text-center">
             <Users className="w-5 h-5 text-teal-400 mb-1" />
-            <span className="text-white font-semibold text-sm">{president?.name || "Vishal Kumar"}</span>
-            <span className="text-teal-400 text-xs">{president?.role || "President"}</span>
-            <span className="text-xs text-gray-400">aimlcluboct@gmail.com</span>
+            <span className="text-white font-black text-sm tracking-tight">{president?.name || "Vishal Kumar"}</span>
+            <span className="text-teal-400 text-xs font-bold tracking-wide">{president?.role || "President"}</span>
+            <span className="text-xs text-gray-400 font-medium tracking-wide">aimlcluboct@gmail.com</span>
           </div>
           {/* Social Media */}
           <div className="flex flex-col gap-3 p-3 rounded-lg bg-white/3 border border-white/10">
-            <div className="text-center text-xs text-gray-400 mb-1">Follow Us</div>
+            <div className="text-center text-xs text-gray-400 mb-1 font-semibold tracking-wide uppercase">Follow Us</div>
             {socialLinks.map((social, idx) => (
               <a
                 key={idx}
                 href={social.link}
-                className="flex items-center gap-2 hover:text-green-400 transition-colors text-sm"
+                className="flex items-center gap-2 hover:text-green-400 transition-colors text-sm font-medium tracking-wide"
                 target="_blank"
                 rel="noopener noreferrer"
               >

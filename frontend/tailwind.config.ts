@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -18,6 +19,53 @@ export default {
 			}
 		},
 		extend: {
+			// Enhanced Typography Scale
+			fontSize: {
+				'xs': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.025em' }],
+				'sm': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.025em' }],
+				'base': ['1rem', { lineHeight: '1.5', letterSpacing: '0em' }],
+				'lg': ['1.125rem', { lineHeight: '1.625', letterSpacing: '0em' }],
+				'xl': ['1.25rem', { lineHeight: '1.5', letterSpacing: '0em' }],
+				'2xl': ['1.5rem', { lineHeight: '1.5', letterSpacing: '0em' }],
+				'3xl': ['1.875rem', { lineHeight: '1.375', letterSpacing: '0em' }],
+				'4xl': ['2.25rem', { lineHeight: '1.375', letterSpacing: '-0.025em' }],
+				'5xl': ['3rem', { lineHeight: '1.25', letterSpacing: '-0.025em' }],
+				'6xl': ['3.75rem', { lineHeight: '1.25', letterSpacing: '-0.025em' }],
+				'7xl': ['4.5rem', { lineHeight: '1.375', letterSpacing: '-0.025em' }],
+				'8xl': ['6rem', { lineHeight: '1.25', letterSpacing: '-0.025em' }],
+				'9xl': ['8rem', { lineHeight: '1.25', letterSpacing: '-0.05em' }],
+			},
+			fontFamily: {
+				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+				'mono': ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', 'monospace'],
+				'display': ['Inter', 'sans-serif'],
+			},
+			fontWeight: {
+				'thin': '100',
+				'extralight': '200',
+				'light': '300',
+				'normal': '400',
+				'medium': '500',
+				'semibold': '600',
+				'bold': '700',
+				'extrabold': '800',
+				'black': '900',
+			},
+			lineHeight: {
+				'tight': '1.25',
+				'snug': '1.375',
+				'normal': '1.5',
+				'relaxed': '1.625',
+				'loose': '2',
+			},
+			letterSpacing: {
+				'tighter': '-0.05em',
+				'tight': '-0.025em',
+				'normal': '0em',
+				'wide': '0.025em',
+				'wider': '0.05em',
+				'widest': '0.1em',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -137,5 +185,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

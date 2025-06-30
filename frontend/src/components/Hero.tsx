@@ -66,20 +66,19 @@ const Hero = memo(() => {
         {/* Main Content */}
         <div className={`space-y-8 animate-fade-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass text-sm font-medium text-white/90 hover-lift">
+          <div className="inline-flex items-center px-4 py-2 rounded-full glass text-sm font-medium text-white/90 hover-lift tracking-wide">
             <Calendar className="w-4 h-4 mr-2 text-yellow-400" />
             🎉 Inauguration Coming Soon
           </div>
 
           {/* Main Heading */}
           <div className="space-y-6">
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold leading-tight">
-              <span className="text-white">AI & ML Club</span>
-              <br />
-              <span className="text-gradient">Coming Soon</span>
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-tight tracking-tight">
+              <span className="text-white block">AI & ML Club</span>
+              <span className="text-gradient block mt-2">Coming Soon</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
               Get ready for the launch of our AI & ML Club at OCT Bhopal! We're preparing an innovative community 
               where cutting-edge technology meets creative minds. Join us from day one of our journey.
             </p>
@@ -89,7 +88,7 @@ const Hero = memo(() => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="btn-modern text-lg px-8 py-4 hover-lift"
+              className="btn-modern text-lg px-8 py-4 hover-lift font-semibold tracking-wide"
               onClick={handleGetStarted}
             >
               Learn More
@@ -106,7 +105,7 @@ const Hero = memo(() => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <feature.icon className={`w-6 h-6 mx-auto mb-2 ${feature.color}`} />
-                <p className="text-sm font-medium text-white/90">{feature.text}</p>
+                <p className="text-sm font-medium text-white/90 tracking-wide">{feature.text}</p>
               </div>
             ))}
           </div>
@@ -114,16 +113,16 @@ const Hero = memo(() => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-1">13</div>
-              <div className="text-sm text-white/70">Core Team Members</div>
+              <div className="text-3xl font-black text-gradient mb-1 tracking-tight">13</div>
+              <div className="text-sm text-white/70 font-medium tracking-wide">Core Team Members</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient-2 mb-1">5+</div>
-              <div className="text-sm text-white/70">Planned Events</div>
+              <div className="text-3xl font-black text-gradient-2 mb-1 tracking-tight">5+</div>
+              <div className="text-sm text-white/70 font-medium tracking-wide">Planned Events</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gradient mb-1">2025</div>
-              <div className="text-sm text-white/70">Launch Year</div>
+              <div className="text-3xl font-black text-gradient mb-1 tracking-tight">2025</div>
+              <div className="text-sm text-white/70 font-medium tracking-wide">Launch Year</div>
             </div>
           </div>
         </div>

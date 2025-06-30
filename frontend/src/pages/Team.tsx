@@ -43,7 +43,7 @@ const TeamPage = memo(() => {
       <ThreeDotsMenu />
       <ScrollProgress />
       
-      <main>
+      <main className="pt-20">
         <Suspense fallback={<LoadingSpinner />}>
           <section id="team" className="scroll-mt-20">
             <Team />

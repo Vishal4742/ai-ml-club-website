@@ -65,7 +65,7 @@ const EventsPage = memo(() => {
       <ThreeDotsMenu />
       <ScrollProgress />
       
-      <main className="max-w-5xl mx-auto py-16 px-4 text-center">
+      <main className="max-w-5xl mx-auto py-16 px-4 text-center pt-20">
         <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent">Events</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {events.length === 0 ? (

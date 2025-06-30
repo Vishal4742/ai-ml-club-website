@@ -45,7 +45,7 @@ const ThreeDotsMenu = () => {
   return (
     <>
       {/* Minimal Three Dots Button - Aligned with header center */}
-      <div className={`fixed top-5 right-6 z-50`}>
+      <div className={`fixed top-5 right-6 z-50 hidden lg:block`}>
         <Button
           variant="ghost"
           size="icon"
@@ -58,7 +58,7 @@ const ThreeDotsMenu = () => {
       </div>
       {/* Minimal Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40">
+        <div className="fixed inset-0 z-40 hidden lg:block">
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsOpen(false)} />
           <div className="absolute top-20 right-6 w-64 bg-black/95 border border-white/10 rounded-xl p-3 flex flex-col gap-2 shadow-xl">
             {/* Navigation */}

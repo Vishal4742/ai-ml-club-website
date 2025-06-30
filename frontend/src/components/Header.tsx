@@ -63,12 +63,12 @@ const Header = memo(() => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled ? 'glass backdrop-blur-xl' : 'bg-transparent'
+      isScrolled ? 'header-liquid-glass' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo and Club Name */}
-          <div className="flex items-center space-x-3 group cursor-pointer" onClick={handleLogoClick}>
+          <div className="flex items-center space-x-3 cursor-pointer no-hover" onClick={handleLogoClick}>
             <Link to="/" className="flex items-center space-x-2">
               <img
                 src="/assets/images/oct-logo.png"
@@ -77,10 +77,10 @@ const Header = memo(() => {
                 style={{ background: 'white' }}
               />
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-white group-hover:text-gradient transition-colors duration-300">
+                <span className="text-xl font-black text-white tracking-tight">
                   AI & ML Club
                 </span>
-                <span className="text-xs text-white/60">OCT Bhopal</span>
+                <span className="text-xs text-white/60 font-medium tracking-wide uppercase">OCT Bhopal</span>
               </div>
             </Link>
           </div>
@@ -91,18 +91,18 @@ const Header = memo(() => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="relative text-white/80 hover:text-white transition-colors duration-300 font-medium group"
+                className="relative text-white/80 font-semibold tracking-wide group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300"></span>
               </Link>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-300"
+            className="lg:hidden text-white p-2 rounded-lg transition-colors duration-300"
             onClick={toggleMenu}
             aria-label="Toggle mobile menu"
           >
@@ -116,13 +116,13 @@ const Header = memo(() => {
             ? 'max-h-96 opacity-100 translate-y-0' 
             : 'max-h-0 opacity-0 -translate-y-4'
         } overflow-hidden`}>
-          <div className="glass backdrop-blur-xl border-t border-white/20 py-6">
+          <div className="liquid-glass border-t border-white/20 py-6">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item, index) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-white/80 hover:text-white transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-white/10"
+                  className="text-white/80 font-semibold tracking-wide py-2 px-4 rounded-lg"
                   onClick={closeMenu}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >

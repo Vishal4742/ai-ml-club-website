@@ -43,7 +43,7 @@ const AboutPage = memo(() => {
       <ThreeDotsMenu />
       <ScrollProgress />
       
-      <main>
+      <main className="pt-20">
         <Suspense fallback={<LoadingSpinner />}>
           <section id="about">
             <About />
