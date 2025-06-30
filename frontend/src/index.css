@@ -550,15 +550,6 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  .hover-glow {
-    transition: box-shadow 0.3s ease;
-    will-change: box-shadow;
-  }
-
-  .hover-glow:hover {
-    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
-  }
-
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
